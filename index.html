@@ -199,25 +199,16 @@
       <div class="card">
         <h2>Отправить отчёт</h2>
         <div class="form-row">
-          <input type="text" id="rep-nick" placeholder="1. Nickname">
-          <select id="rep-role">
-            <option value="Младший модератор">Младший модератор</option>
-            <option value="Модератор">Модератор</option>
-            <option value="Старший модератор">Старший модератор</option>
-            <option value="Куратор модерации">Куратор модерации</option>
-            <option value="Зам. Главного модератора">Зам. Главного модератора</option>
-            <option value="Главный модератор">Главный модератор</option>
-            <option value="Разработчик">Разработчик</option>
-          </select>
+          <select id="rep-nick"></select>
         </div>
         <div class="form-row">
-          <input type="text" id="rep-what" placeholder="3. Что было проделано" style="flex:2">
-          <input type="number" id="rep-count" placeholder="4. Кол-во действий" min="1">
-          <input type="number" id="rep-punish" placeholder="5. Выдано наказаний" min="0">
+          <input type="text" id="rep-what" placeholder="Что было проделано" style="flex:2">
+          <input type="number" id="rep-count" placeholder="Кол-во действий" min="1">
+          <input type="number" id="rep-punish" placeholder="Выдано наказаний" min="0">
         </div>
         <div class="form-row">
-          <input type="text" id="rep-proof" placeholder="6. Доказательства" style="flex:1">
-          <input type="date" id="rep-date" title="7. Дата">
+          <input type="text" id="rep-proof" placeholder="Доказательства" style="flex:1">
+          <input type="date" id="rep-date" title="Дата">
           <button onclick="addReport()">Отправить</button>
         </div>
       </div>
@@ -234,19 +225,10 @@
       <div class="card">
         <h2>Заявка на неактив</h2>
         <div class="form-row">
-          <input type="text" id="ina-nick" placeholder="1. Nickname">
-          <select id="ina-role">
-            <option value="Младший модератор">Младший модератор</option>
-            <option value="Модератор">Модератор</option>
-            <option value="Старший модератор">Старший модератор</option>
-            <option value="Куратор модерации">Куратор модерации</option>
-            <option value="Зам. Главного модератора">Зам. Главного модератора</option>
-            <option value="Главный модератор">Главный модератор</option>
-            <option value="Разработчик">Разработчик</option>
-          </select>
+          <select id="ina-nick"></select>
         </div>
         <div class="form-row">
-          <input type="text" id="ina-reason" placeholder="3. Причина неактива" style="flex:2">
+          <input type="text" id="ina-reason" placeholder="Причина неактива" style="flex:2">
           <input type="date" id="ina-from" title="С">
           <input type="date" id="ina-to" title="По">
           <button onclick="addInactive()">Подать</button>
@@ -265,10 +247,14 @@
       <div class="card">
         <h2>Заявка на снятие наказания</h2>
         <div class="form-row">
-          <input type="text" id="rev-nick" placeholder="Никнейм нарушителя">
-          <input type="text" id="rev-admin" placeholder="Кто выдал наказание">
+          <select id="rev-nick"></select>
+          <select id="rev-admin"></select>
         </div>
         <div class="form-row">
+          <select id="rev-type">
+            <option value="Предупреждение">Предупреждение (-7 баллов)</option>
+            <option value="Выговор">Выговор (-15 баллов)</option>
+          </select>
           <input type="text" id="rev-reason" placeholder="Причина снятия" style="flex:1">
           <button onclick="addRevoke()">Подать заявку</button>
         </div>
@@ -276,7 +262,7 @@
       <div class="card">
         <h2>Заявки на снятие</h2>
         <div class="scroll"><table>
-          <thead><tr><th>#</th><th>Нарушитель</th><th>Кто выдал</th><th>Причина</th><th>Статус</th></tr></thead>
+          <thead><tr><th>#</th><th>Нарушитель</th><th>Кто выдал</th><th>Наказание</th><th>Причина</th><th>Статус</th></tr></thead>
           <tbody id="punish_revoke-body"></tbody>
         </table></div>
       </div>
@@ -286,7 +272,7 @@
       <div class="card">
         <h2>Подать заявку на рекорд</h2>
         <div class="form-row">
-          <input type="text" id="rec-nick" placeholder="Ваш Nickname">
+          <select id="rec-nick"></select>
           <select id="rec-type">
             <option value="По наказаниям за все время">По наказаниям за все время</option>
             <option value="По минутам в войсе за день">По минутам в войсе за день</option>
@@ -338,7 +324,6 @@
         <h2>Создать тему (Руководство)</h2>
         <div class="form-row">
           <input type="text" id="forum-title" placeholder="Название темы" style="flex:1">
-          <input type="text" id="forum-author" placeholder="Автор (Nickname)">
         </div>
         <textarea id="forum-text" placeholder="Текст сообщения..."></textarea>
         <div class="form-row" style="margin-top:12px">
@@ -375,12 +360,12 @@
       <div class="card">
         <h2>Таблица модерации</h2>
         <div class="scroll"><table>
-          <thead><tr><th>#</th><th>Должность</th><th>Nickname</th><th>Баллы</th><th>Дней на должности</th></tr></thead>
+          <thead><tr><th>#</th><th>Должность</th><th>Nickname</th><th>Баллы</th><th>Дней на должности</th><th id="mt-actions-header" class="hidden">Действия</th></tr></thead>
           <tbody id="mod-table-body"></tbody>
         </table></div>
       </div>
       <div class="card hidden" id="mod-table-admin">
-        <h2>Редактировать (Руководство)</h2>
+        <h2>Добавить в таблицу (Руководство)</h2>
         <div class="form-row">
           <input type="text" id="mt-nick" placeholder="Nickname">
           <select id="mt-role">
@@ -401,7 +386,7 @@
       <div class="card">
         <h2>Выдать должность</h2>
         <div class="form-row">
-          <input type="text" id="right-name" placeholder="Nickname пользователя">
+          <select id="right-name"></select>
           <select id="right-role">
             <option value="Младший модератор">Младший модератор</option>
             <option value="Модератор">Модератор</option>
@@ -440,7 +425,7 @@
       <div class="card">
         <h2>Снятие наказаний</h2>
         <div class="scroll"><table>
-          <thead><tr><th>#</th><th>Нарушитель</th><th>Кто выдал</th><th>Причина</th><th>Статус</th><th>Действие</th></tr></thead>
+          <thead><tr><th>#</th><th>Нарушитель</th><th>Кто выдал</th><th>Наказание</th><th>Статус</th><th>Действие</th></tr></thead>
           <tbody id="check-revoke-body"></tbody>
         </table></div>
       </div>
@@ -475,7 +460,7 @@
       <div class="card">
         <h2>Выдать баллы</h2>
         <div class="form-row">
-          <input type="text" id="pt-name" placeholder="Nickname">
+          <select id="pt-name"></select>
           <input type="number" id="pt-amount" placeholder="Баллы (+/-)">
           <input type="text" id="pt-reason" placeholder="Причина" style="flex:1">
           <button onclick="addPoints()">Применить</button>
@@ -497,15 +482,13 @@
 /* ===== ХРАНИЛИЩЕ ===== */
 const DB = {
   accounts: [
-    { id: 1, nick: 'Vildan_Velikii', email: 'vildanforum@gmail.com', pass: 'Admin09080767', role: 'dev', status: 'Одобрен', dev: true, date: new Date().toLocaleDateString('ru-RU') }
+    { id: 1, nick: 'admin', email: 'vildanforum@gmail.com', pass: 'Admin09080767', role: 'dev', status: 'Одобрен', dev: true, date: new Date().toLocaleDateString('ru-RU') }
   ],
   reports: [], inactive: [], rights: [], points: [], topics: [],
   revokes: [], records: [], prizes: ['500 CR', '1000 CR', 'Автомобиль', 'Скидка 10%'],
-  modTable: [
-    { id: 1, nick: 'Vildan_Velikii', role: 'Главный модератор', days: 365 }
-  ]
+  modTable: []
 };
-const C = { accounts: 1, reports: 0, inactive: 0, rights: 0, points: 0, topics: 0, revokes: 0, records: 0, modTable: 1 };
+const C = { accounts: 1, reports: 0, inactive: 0, rights: 0, points: 0, topics: 0, revokes: 0, records: 0, modTable: 0 };
 let currentUser = null;
 let currentRegCode = null;
 let pendingReg = null;
@@ -598,6 +581,7 @@ function enterApp() {
   document.getElementById('who-label').textContent = currentUser.nick;
   document.getElementById('who-pill').textContent = ROLE_LABELS[currentUser.role] || currentUser.role;
   updateAccess(); renderAll();
+  updateSelects();
 }
 function logout() {
   currentUser = null;
@@ -622,7 +606,6 @@ function switchTab(id) {
 }
 function updateAccess() {
   const admin = isAdmin(), boss = isBoss();
-  // Разработчику (dev) доступно всё
   document.getElementById('tab-rights').classList.toggle('hidden', !admin);
   document.getElementById('tab-check').classList.toggle('hidden', !admin);
   document.getElementById('tab-accounts').classList.toggle('hidden', !admin);
@@ -630,28 +613,54 @@ function updateAccess() {
   document.getElementById('tab-mod_table').classList.toggle('hidden', !boss);
   
   document.getElementById('wheel-admin-card').classList.toggle('hidden', !admin);
-  document.getElementById('mod-table-admin').classList.toggle('hidden', !boss);
+  document.getElementById('mod-table-admin').classList.toggle('hidden', !isBoss());
   document.getElementById('forum-create-card').classList.toggle('hidden', !admin);
+  
+  // Показ колонки "Действия" в таблице модерации
+  document.getElementById('mt-actions-header').classList.toggle('hidden', !isBoss());
+}
+
+// Обновление выпадающих списков никнеймов (только одобренные пользователи)
+function updateSelects() {
+  const approved = DB.accounts.filter(a => a.status === 'Одобрен').map(a => a.nick);
+  
+  ['rep-nick', 'ina-nick', 'rec-nick', 'rev-admin', 'pt-name'].forEach(id => {
+    const sel = document.getElementById(id);
+    if(!sel) return;
+    const val = sel.value;
+    sel.innerHTML = approved.map(n => `<option value="${n}">${n}</option>`).join('');
+    if (approved.includes(val)) sel.value = val;
+  });
+
+  // Для нарушителя (rev-nick) тоже список, но это могут быть любые пользователи (по факту все)
+  const revSel = document.getElementById('rev-nick');
+  if(revSel) revSel.innerHTML = approved.map(n => `<option value="${n}">${n}</option>`).join('');
+
+  // В правах - только те, кто есть в таблице модерации
+  const rightSel = document.getElementById('right-name');
+  if(rightSel) {
+    rightSel.innerHTML = DB.modTable.map(m => `<option value="${m.nick}">${m.nick} (${m.role})</option>`).join('');
+  }
 }
 
 /* ===== РЕНДЕР ===== */
 function renderAll() {
   renderReports(); renderInactive(); renderRights(); renderCheck(); renderAccounts(); renderPoints();
   renderForum(); renderProfile(); renderModTable(); renderWheelAdmin(); renderRevoke(); renderRecords();
+  updateSelects();
 }
 
 /* ===== ОТЧЁТЫ ===== */
 function addReport() {
-  const nick = document.getElementById('rep-nick').value.trim();
-  const role = document.getElementById('rep-role').value;
+  const nick = document.getElementById('rep-nick').value;
   const what = document.getElementById('rep-what').value.trim();
   const count = parseInt(document.getElementById('rep-count').value, 10);
   const punish = parseInt(document.getElementById('rep-punish').value, 10) || 0;
   const proof = document.getElementById('rep-proof').value.trim();
   const date = document.getElementById('rep-date').value;
   if (!nick || !what || !count || count < 1) return alert('Заполните обязательные поля');
-  DB.reports.push({ id: ++C.reports, nick, role, what, count, punish, proof: proof || '—', date: date || today(), status: 'На рассмотрении' });
-  ['rep-nick','rep-what','rep-count','rep-punish','rep-proof','rep-date'].forEach(id => document.getElementById(id).value = '');
+  DB.reports.push({ id: ++C.reports, nick, what, count, punish, proof: proof || '—', date: date || today(), status: 'На рассмотрении' });
+  ['rep-what','rep-count','rep-punish','rep-proof','rep-date'].forEach(id => document.getElementById(id).value = '');
   renderReports(); renderCheck();
 }
 function renderReports() {
@@ -668,14 +677,13 @@ function renderReports() {
 
 /* ===== НЕАКТИВ ===== */
 function addInactive() {
-  const nick = document.getElementById('ina-nick').value.trim();
-  const role = document.getElementById('ina-role').value;
+  const nick = document.getElementById('ina-nick').value;
   const reason = document.getElementById('ina-reason').value.trim();
   const from = document.getElementById('ina-from').value;
   const to = document.getElementById('ina-to').value;
-  if (!nick || !reason) return alert('Заполните Nickname и причину');
-  DB.inactive.push({ id: ++C.inactive, nick, role, reason, period: (from||'?') + ' → ' + (to||'?'), status: 'На рассмотрении' });
-  ['ina-nick','ina-reason','ina-from','ina-to'].forEach(id => document.getElementById(id).value = '');
+  if (!nick || !reason) return alert('Заполните поля');
+  DB.inactive.push({ id: ++C.inactive, nick, reason, period: (from||'?') + ' → ' + (to||'?'), status: 'На рассмотрении' });
+  ['ina-reason','ina-from','ina-to'].forEach(id => document.getElementById(id).value = '');
   renderInactive(); renderCheck();
 }
 function renderInactive() {
@@ -689,31 +697,32 @@ function renderInactive() {
 
 /* ===== СНЯТИЕ НАКАЗАНИЙ ===== */
 function addRevoke() {
-  const nick = document.getElementById('rev-nick').value.trim();
-  const admin = document.getElementById('rev-admin').value.trim();
+  const nick = document.getElementById('rev-nick').value;
+  const admin = document.getElementById('rev-admin').value;
+  const type = document.getElementById('rev-type').value;
   const reason = document.getElementById('rev-reason').value.trim();
-  if (!nick || !reason) return alert('Заполните нарушителя и причину');
-  DB.revokes.push({ id: ++C.revokes, nick, admin: admin||'—', reason, status: 'На рассмотрении' });
-  ['rev-nick','rev-admin','rev-reason'].forEach(id => document.getElementById(id).value = '');
+  if (!nick || !reason) return alert('Заполните поля');
+  DB.revokes.push({ id: ++C.revokes, nick, admin, type, reason, status: 'На рассмотрении' });
+  ['rev-reason'].forEach(id => document.getElementById(id).value = '');
   renderRevoke(); renderCheck();
 }
 function renderRevoke() {
   const tbody = document.getElementById('punish_revoke-body');
-  if (!DB.revokes.length) { tbody.innerHTML = emptyRow(5); return; }
+  if (!DB.revokes.length) { tbody.innerHTML = emptyRow(6); return; }
   tbody.innerHTML = DB.revokes.map(r => `
     <tr><td>${r.id}</td><td>${esc(r.nick)}</td><td>${esc(r.admin)}</td>
-    <td>${esc(r.reason)}</td><td class="status-${statusClass(r.status)}">${r.status}</td></tr>`).join('');
+    <td>${r.type}</td><td>${esc(r.reason)}</td><td class="status-${statusClass(r.status)}">${r.status}</td></tr>`).join('');
 }
 
 /* ===== РЕКОРДЫ ===== */
 function addRecord() {
-  const nick = document.getElementById('rec-nick').value.trim();
+  const nick = document.getElementById('rec-nick').value;
   const type = document.getElementById('rec-type').value;
   const val = document.getElementById('rec-value').value;
   const proof = document.getElementById('rec-proof').value.trim();
   if (!nick || !val) return alert('Заполните Nickname и значение');
   DB.records.push({ id: ++C.records, nick, type, value: val, proof, status: 'На рассмотрении' });
-  ['rec-nick','rec-value','rec-proof'].forEach(id => document.getElementById(id).value = '');
+  ['rec-value','rec-proof'].forEach(id => document.getElementById(id).value = '');
   renderRecords(); renderCheck();
 }
 function renderRecords() {
@@ -742,14 +751,13 @@ function addPrize() {
 }
 function delPrize(i) { if(isAdmin()) { DB.prizes.splice(i, 1); renderWheelAdmin(); } }
 function spinWheel() {
-  if (!DB.prizes.length) return alert('Нет призов для рулетки');
+  if (!DB.prizes.length) return alert('Нет призов');
   const spins = Math.floor(Math.random() * 5) + 5;
   currentRotation += spins * 360 + Math.random() * 360;
   const wheel = document.getElementById('wheel-graphic');
   wheel.style.transform = `rotate(${currentRotation}deg)`;
   document.getElementById('spin-btn').disabled = true;
   document.getElementById('wheel-result').textContent = 'Крутим...';
-  
   setTimeout(() => {
     const randomPrize = DB.prizes[Math.floor(Math.random() * DB.prizes.length)];
     document.getElementById('wheel-result').textContent = `🎉 Выигрыш: ${randomPrize}!`;
@@ -760,11 +768,10 @@ function spinWheel() {
 /* ===== ТЕМЫ ===== */
 function addTopic() {
   const title = document.getElementById('forum-title').value.trim();
-  const author = document.getElementById('forum-author').value.trim();
   const text = document.getElementById('forum-text').value.trim();
   if (!title || !text) return alert('Заполните название и текст');
-  DB.topics.unshift({ id: ++C.topics, title, author: author||currentUser.nick, text, date: today() });
-  ['forum-title','forum-author','forum-text'].forEach(id => document.getElementById(id).value = '');
+  DB.topics.unshift({ id: ++C.topics, title, author: currentUser.nick, text, date: today() });
+  ['forum-title','forum-text'].forEach(id => document.getElementById(id).value = '');
   renderForum();
 }
 function renderForum() {
@@ -821,26 +828,43 @@ function addModTable() {
   const days = parseInt(document.getElementById('mt-days').value, 10) || 0;
   if (!nick) return alert('Укажите Nickname');
   
-  const userPts = DB.points.filter(p => p.name === nick).reduce((s, p) => s + p.amount, 0);
-  DB.modTable.push({ id: ++C.modTable, nick, role, days, points: userPts });
+  DB.modTable.push({ id: ++C.modTable, nick, role, days });
   ['mt-nick','mt-days'].forEach(id => document.getElementById(id).value = '');
+  renderModTable(); updateSelects();
+}
+function editModDays(id, val) {
+  if (!isBoss()) return;
+  const r = DB.modTable.find(x => x.id === id);
+  if (r) r.days = parseInt(val, 10) || 0;
   renderModTable();
+}
+function delMod(id) {
+  if (!isBoss()) return;
+  DB.modTable = DB.modTable.filter(x => x.id !== id);
+  renderModTable(); updateSelects();
 }
 function renderModTable() {
   const tbody = document.getElementById('mod-table-body');
-  if (!DB.modTable.length) { tbody.innerHTML = emptyRow(5); return; }
+  const boss = isBoss();
+  if (!DB.modTable.length) { tbody.innerHTML = emptyRow(boss ? 6 : 5); return; }
   
   const hierarchy = ['Главный модератор', 'Зам. Главного модератора', 'Куратор модерации', 'Старший модератор', 'Модератор', 'Младший модератор'];
   const sorted = [...DB.modTable].sort((a,b) => hierarchy.indexOf(a.role) - hierarchy.indexOf(b.role));
 
   tbody.innerHTML = sorted.map((r, i) => {
     const pts = DB.points.filter(p => p.name === r.nick).reduce((s, p) => s + p.amount, 0);
+    const actions = boss ? `<td class="nowrap">
+      <input type="number" value="${r.days}" onchange="editModDays(${r.id}, this.value)" style="width:60px;padding:4px;display:inline-block;margin-right:5px;">
+      <button class="small danger" onclick="delMod(${r.id})">✖</button>
+    </td>` : '';
+    
     return `<tr>
       <td>${i+1}</td>
       <td><span class="badge ${roleClass(r.role)}">${r.role}</span></td>
       <td>${esc(r.nick)}</td>
       <td class="points">${pts}</td>
       <td>${r.days}</td>
+      ${actions}
     </tr>`;
   }).join('');
 }
@@ -848,11 +872,10 @@ function renderModTable() {
 /* ===== ПРОЧИЕ АДМИНКИ ===== */
 function addRight() {
   if (!isAdmin()) return;
-  const name = document.getElementById('right-name').value.trim();
+  const name = document.getElementById('right-name').value;
   const role = document.getElementById('right-role').value;
   if (!name) return;
   DB.rights.push({ id: ++C.rights, name, role, date: today() });
-  document.getElementById('right-name').value = '';
   renderRights();
 }
 function renderRights() {
@@ -889,7 +912,7 @@ function renderCheck() {
   if (!admin) { trev.innerHTML = emptyRow(6, 'Нет доступа'); }
   else {
     trev.innerHTML = DB.revokes.length ? DB.revokes.map(r => `
-      <tr><td>${r.id}</td><td>${esc(r.nick)}</td><td>${esc(r.admin)}</td><td>${esc(r.reason)}</td>
+      <tr><td>${r.id}</td><td>${esc(r.nick)}</td><td>${esc(r.admin)}</td><td>${r.type}</td>
       <td class="status-${statusClass(r.status)}">${r.status}</td>
       <td>${r.status==='На рассмотрении'?`<button class="small ok" onclick="appRev(${r.id})">✔</button><button class="small danger" onclick="rejRev(${r.id})">✖</button>`:'—'}</td></tr>`).join('') : emptyRow(6);
   }
@@ -902,11 +925,27 @@ function renderCheck() {
       <td>${r.status==='На рассмотрении'?`<button class="small ok" onclick="appRec(${r.id})">✔</button><button class="small danger" onclick="rejRec(${r.id})">✖</button>`:'—'}</td></tr>`).join('') : emptyRow(6);
   }
 }
-function appRep(id) { const r = DB.reports.find(x=>x.id===id); if(r){ r.status='Одобрено'; renderCheck(); renderReports(); } }
+function appRep(id) { 
+  const r = DB.reports.find(x=>x.id===id); 
+  if(r){ 
+    r.status='Одобрено'; 
+    DB.points.push({ id: ++C.points, name: r.nick, amount: r.count, reason: 'Одобрен отчёт #'+r.id, date: today() });
+    renderCheck(); renderReports(); renderPoints(); renderModTable(); 
+  } 
+}
 function rejRep(id) { const r = DB.reports.find(x=>x.id===id); if(r){ r.status='Отклонено'; renderCheck(); renderReports(); } }
 function appIna(id) { const r = DB.inactive.find(x=>x.id===id); if(r){ r.status='Одобрено'; renderCheck(); renderInactive(); } }
 function rejIna(id) { const r = DB.inactive.find(x=>x.id===id); if(r){ r.status='Отклонено'; renderCheck(); renderInactive(); } }
-function appRev(id) { const r = DB.revokes.find(x=>x.id===id); if(r){ r.status='Одобрено'; renderCheck(); renderRevoke(); } }
+function appRev(id) { 
+  const r = DB.revokes.find(x=>x.id===id); 
+  if(r){ 
+    r.status='Одобрено'; 
+    const penalty = r.type === 'Предупреждение' ? -7 : -15;
+    // Отнимаем баллы у того, КТО ВЫДАЛ наказание, как указано в задании
+    DB.points.push({ id: ++C.points, name: r.admin, amount: penalty, reason: 'Снятие ' + r.type + ' (нарушитель: ' + r.nick + ')', date: today() });
+    renderCheck(); renderRevoke(); renderPoints(); renderModTable(); 
+  } 
+}
 function rejRev(id) { const r = DB.revokes.find(x=>x.id===id); if(r){ r.status='Отклонено'; renderCheck(); renderRevoke(); } }
 function appRec(id) { const r = DB.records.find(x=>x.id===id); if(r){ r.status='Одобрено'; renderCheck(); renderRecords(); } }
 function rejRec(id) { const r = DB.records.find(x=>x.id===id); if(r){ r.status='Отклонено'; renderCheck(); renderRecords(); } }
@@ -925,19 +964,29 @@ function renderAccounts() {
   if (!admin) { tba.innerHTML = emptyRow(5); }
   else { tba.innerHTML = act.map(a => `
     <tr><td>${a.id}</td><td>${esc(a.nick)}</td><td>${esc(a.email)}</td><td>${ROLE_LABELS[a.role]||a.role}</td>
-    <td>${a.dev?'<span style="color:#ff6b35;font-size:11px">DEV</span>':`<button class="small danger" onclick="DB.accounts=DB.accounts.filter(x=>x.id!==${a.id});renderAccounts()">✖</button>`}</td></tr>`).join(''); }
+    <td>${a.dev?'<span style="color:#ff6b35;font-size:11px">DEV</span>':`<button class="small danger" onclick="DB.accounts=DB.accounts.filter(x=>x.id!==${a.id});renderAccounts();updateSelects();">✖</button>`}</td></tr>`).join(''); }
 }
-function appAcc(id) { const a = DB.accounts.find(x=>x.id===id); if(a){ a.status='Одобрен'; renderAccounts(); } }
+function appAcc(id) { 
+  const a = DB.accounts.find(x=>x.id===id); 
+  if(a){ 
+    a.status='Одобрен'; 
+    // Автоматически добавляем в таблицу модерации при одобрении
+    if (!DB.modTable.some(m=>m.nick===a.nick)) {
+      DB.modTable.push({ id: ++C.modTable, nick: a.nick, role: ROLE_LABELS[a.role], days: 0 });
+    }
+    renderAccounts(); updateSelects(); renderModTable(); 
+  } 
+}
 function rejAcc(id) { const a = DB.accounts.find(x=>x.id===id); if(a){ a.status='Отклонено'; renderAccounts(); } }
 
 function addPoints() {
   if (!isAdmin()) return;
-  const name = document.getElementById('pt-name').value.trim();
+  const name = document.getElementById('pt-name').value;
   const amt = parseInt(document.getElementById('pt-amount').value, 10);
   const reas = document.getElementById('pt-reason').value.trim();
   if (!name || isNaN(amt) || amt === 0 || !reas) return alert('Заполните поля');
   DB.points.push({ id: ++C.points, name, amount: amt, reason: reas, date: today() });
-  ['pt-name','pt-amount','pt-reason'].forEach(id => document.getElementById(id).value = '');
+  ['pt-amount','pt-reason'].forEach(id => document.getElementById(id).value = '');
   renderPoints(); renderModTable(); renderProfile();
 }
 function renderPoints() {
@@ -946,7 +995,7 @@ function renderPoints() {
   if (!DB.points.length) { tb.innerHTML = emptyRow(6); return; }
   tb.innerHTML = DB.points.slice().reverse().map(p => `
     <tr><td>${p.id}</td><td>${esc(p.name)}</td><td style="color:${p.amount>0?'#58d68d':'#ec7063'}">${p.amount>0?'+':''}${p.amount}</td>
-    <td>${esc(p.reason)}</td><td>${p.date}</td><td><button class="small danger" onclick="DB.points=DB.points.filter(x=>x.id!==${p.id});renderPoints();renderModTable()">✖</button></td></tr>`).join('');
+    <td>${esc(p.reason)}</td><td>${p.date}</td><td><button class="small danger" onclick="DB.points=DB.points.filter(x=>x.id!==${p.id});renderPoints();renderModTable();">✖</button></td></tr>`).join('');
   
   const totals = {}; DB.points.forEach(p => totals[p.name] = (totals[p.name]||0) + p.amount);
   const stats = document.getElementById('points-stats');
@@ -958,4 +1007,4 @@ function renderPoints() {
 renderAll();
 </script>
 </body>
-       </html>
+     </html>
