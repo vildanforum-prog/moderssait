@@ -26,9 +26,6 @@
   .auth-logo { text-align: center; font-size: 44px; margin-bottom: 6px; }
   .auth-box h2 { color: #ff6b35; font-size: 22px; margin-bottom: 6px; text-align: center; letter-spacing: 1px; }
   .auth-box .sub { text-align: center; color: #888; font-size: 13px; margin-bottom: 24px; }
-  .auth-tabs { display: flex; gap: 4px; margin-bottom: 20px; background: #1a1d21; padding: 4px; border-radius: 10px; }
-  .auth-tabs button { flex: 1; padding: 10px; background: transparent; color: #aaa; border: none; border-radius: 7px; font-size: 13px; font-weight: 600; cursor: pointer; transition: .2s; font-family: inherit; }
-  .auth-tabs button.active { background: #ff6b35; color: #fff; }
   .auth-form { display: flex; flex-direction: column; gap: 11px; }
   .auth-form input, .auth-form select { background: #1a1d21; border: 1px solid #3a3f47; color: #e4e6eb; padding: 12px 14px; border-radius: 8px; font-size: 14px; outline: none; width: 100%; font-family: inherit; }
   .auth-form input:focus, .auth-form select:focus { border-color: #ff6b35; }
@@ -36,10 +33,7 @@
   .auth-msg { font-size: 13px; padding: 11px; border-radius: 8px; margin-top: 8px; text-align: center; line-height: 1.4; }
   .auth-msg.error { background: #c0392b33; color: #ec7063; border: 1px solid #c0392b; }
   .auth-msg.ok { background: #27ae6033; color: #58d68d; border: 1px solid #27ae60; }
-  .auth-msg.info { background: #3498db33; color: #5dade2; border: 1px solid #3498db; }
   .auth-footer { text-align: center; color: #555; font-size: 11px; margin-top: 18px; }
-  .code-hint { background: #ff6b3522; border: 1px dashed #ff6b35; color: #ff8555; padding: 10px; border-radius: 8px; font-size: 12px; text-align: center; }
-  .code-hint b { font-size: 20px; letter-spacing: 4px; color: #ff6b35; }
 
   #app-screen { display: flex; flex-direction: column; min-height: 100vh; }
   header { background: linear-gradient(90deg, #2b2f36, #3a3f47); padding: 14px 24px; border-bottom: 2px solid #ff6b35; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
@@ -124,46 +118,15 @@
   <div class="auth-box">
     <div class="auth-logo">🛡️</div>
     <h2>ПАНЕЛЬ МОДЕРАЦИИ</h2>
-    <div class="sub">Вход по Email · Регистрация</div>
-
-    <div class="auth-tabs">
-      <button id="auth-tab-login" class="active" onclick="switchAuth('login')">Вход</button>
-      <button id="auth-tab-register" onclick="switchAuth('register')">Регистрация</button>
-    </div>
+    <div class="sub">Вход по Nickname · Доступ выдается руководством</div>
 
     <div class="auth-form" id="auth-login">
-      <input type="email" id="login-email" placeholder="Email" autocomplete="username">
+      <input type="text" id="login-nick" placeholder="Nickname" autocomplete="username">
       <input type="password" id="login-pass" placeholder="Пароль" autocomplete="current-password" onkeydown="if(event.key==='Enter') doLogin()">
       <button onclick="doLogin()">Войти</button>
       <div class="auth-msg" id="login-msg" style="display:none"></div>
     </div>
 
-    <div class="auth-form hidden" id="auth-register">
-      <input type="text" id="reg-nick" placeholder="Nickname">
-      <input type="email" id="reg-email" placeholder="Email">
-      <input type="password" id="reg-pass" placeholder="Придумайте пароль">
-      <input type="password" id="reg-pass2" placeholder="Повторите пароль">
-      <select id="reg-role">
-        <option value="junior">Младший модератор</option>
-        <option value="mod">Модератор</option>
-        <option value="senior">Старший модератор</option>
-        <option value="curator">Куратор модерации</option>
-        <option value="deputy">Зам. Главного модератора</option>
-        <option value="main">Главный модератор</option>
-      </select>
-      <button onclick="requestRegisterCode()">Получить код на почту</button>
-      <div class="auth-msg" id="reg-msg" style="display:none"></div>
-
-      <div id="reg-code-step" class="hidden" style="flex-direction:column;gap:11px;margin-top:8px;">
-        <div class="code-hint">
-          Код отправлен на <b id="reg-code-email">—</b><br>
-          <span style="font-size:11px;color:#aaa">(демо-режим: ваш код — <b id="reg-code-demo" style="font-size:14px;letter-spacing:2px;">————</b>)</span>
-        </div>
-        <input type="text" id="reg-code" placeholder="Введите код" maxlength="6" style="text-align:center;letter-spacing:6px;font-size:18px;" onkeydown="if(event.key==='Enter') confirmRegister()">
-        <button onclick="confirmRegister()">Подтвердить</button>
-        <button class="secondary" onclick="requestRegisterCode()">Отправить снова</button>
-      </div>
-    </div>
     <div class="auth-footer">© 2025 Панель модерации</div>
   </div>
 </div>
@@ -190,7 +153,7 @@
     <button class="tab-btn hidden" data-tab="mod_table" id="tab-mod_table">📊 Таблица модерации</button>
     <button class="tab-btn hidden" data-tab="rights" id="tab-rights">🔑 Права</button>
     <button class="tab-btn hidden" data-tab="check" id="tab-check">✅ Проверка форм</button>
-    <button class="tab-btn hidden" data-tab="accounts" id="tab-accounts">👥 Аккаунты</button>
+    <button class="tab-btn hidden" data-tab="accounts" id="tab-accounts">👥 Управление аккаунтами</button>
     <button class="tab-btn hidden" data-tab="points" id="tab-points">⭐ Баллы</button>
   </div>
 
@@ -199,7 +162,7 @@
       <div class="card">
         <h2>Отправить отчёт</h2>
         <div class="form-row">
-          <select id="rep-nick"></select>
+          <select id="rep-nick" disabled></select>
         </div>
         <div class="form-row">
           <input type="text" id="rep-what" placeholder="Что было проделано" style="flex:2">
@@ -225,7 +188,7 @@
       <div class="card">
         <h2>Заявка на неактив</h2>
         <div class="form-row">
-          <select id="ina-nick"></select>
+          <select id="ina-nick" disabled></select>
         </div>
         <div class="form-row">
           <input type="text" id="ina-reason" placeholder="Причина неактива" style="flex:2">
@@ -272,7 +235,7 @@
       <div class="card">
         <h2>Подать заявку на рекорд</h2>
         <div class="form-row">
-          <select id="rec-nick"></select>
+          <select id="rec-nick" disabled></select>
           <select id="rec-type">
             <option value="По наказаниям за все время">По наказаниям за все время</option>
             <option value="По минутам в войсе за день">По минутам в войсе за день</option>
@@ -367,7 +330,7 @@
       <div class="card hidden" id="mod-table-admin">
         <h2>Добавить в таблицу (Руководство)</h2>
         <div class="form-row">
-          <input type="text" id="mt-nick" placeholder="Nickname">
+          <select id="mt-nick-select"></select>
           <select id="mt-role">
             <option value="Главный модератор">Главный модератор</option>
             <option value="Зам. Главного модератора">Зам. Главного модератора</option>
@@ -440,17 +403,28 @@
 
     <section class="panel" id="accounts">
       <div class="card">
-        <h2>Заявки</h2>
-        <div class="scroll"><table>
-          <thead><tr><th>#</th><th>Nickname</th><th>Email</th><th>Роль</th><th>Действие</th></tr></thead>
-          <tbody id="accounts-body"></tbody>
-        </table></div>
+        <h2>Создать аккаунт (Только для руководства)</h2>
+        <div class="form-row">
+          <input type="text" id="new-acc-nick" placeholder="Nickname">
+          <input type="text" id="new-acc-pass" placeholder="Пароль">
+          <select id="new-acc-role">
+            <option value="Младший модератор">Младший модератор</option>
+            <option value="Модератор">Модератор</option>
+            <option value="Старший модератор">Старший модератор</option>
+            <option value="Куратор модерации">Куратор модерации</option>
+            <option value="Зам. Главного модератора">Зам. Главного модератора</option>
+            <option value="Главный модератор">Главный модератор</option>
+          </select>
+          <button onclick="createAccount()">Создать</button>
+        </div>
+        <div id="create-result" style="display:none; margin-top:10px; padding:10px; background:#27ae6022; border:1px solid #27ae60; border-radius:6px; color:#58d68d; font-size:13px;">
+        </div>
       </div>
       <div class="card">
-        <h2>Одобренные</h2>
+        <h2>Все аккаунты</h2>
         <div class="scroll"><table>
-          <thead><tr><th>#</th><th>Nickname</th><th>Email</th><th>Роль</th><th></th></tr></thead>
-          <tbody id="accounts-active-body"></tbody>
+          <thead><tr><th>#</th><th>Nickname</th><th>Должность</th><th>Пароль</th><th>Действия</th></tr></thead>
+          <tbody id="accounts-body"></tbody>
         </table></div>
       </div>
     </section>
@@ -482,7 +456,7 @@
 /* ===== ХРАНИЛИЩЕ ===== */
 const DB = {
   accounts: [
-    { id: 1, nick: 'admin', email: 'vildanforum@gmail.com', pass: 'Admin09080767', role: 'dev', status: 'Одобрен', dev: true, date: new Date().toLocaleDateString('ru-RU') }
+    { id: 1, nick: 'admin', pass: 'Admin09080767', role: 'dev', status: 'Одобрен', dev: true, date: new Date().toLocaleDateString('ru-RU') }
   ],
   reports: [], inactive: [], rights: [], points: [], topics: [],
   revokes: [], records: [], prizes: ['500 CR', '1000 CR', 'Автомобиль', 'Скидка 10%'],
@@ -490,13 +464,15 @@ const DB = {
 };
 const C = { accounts: 1, reports: 0, inactive: 0, rights: 0, points: 0, topics: 0, revokes: 0, records: 0, modTable: 0 };
 let currentUser = null;
-let currentRegCode = null;
-let pendingReg = null;
 
 const ROLE_LABELS = {
   user: 'Пользователь', junior: 'Младший модератор', mod: 'Модератор',
   senior: 'Старший модератор', curator: 'Куратор модерации',
   deputy: 'Зам. Главного модератора', main: 'Главный модератор', dev: 'Разработчик'
+};
+const ROLE_KEYS = {
+  'Младший модератор': 'junior', 'Модератор': 'mod', 'Старший модератор': 'senior',
+  'Куратор модерации': 'curator', 'Зам. Главного модератора': 'deputy', 'Главный модератор': 'main'
 };
 
 function today() { return new Date().toLocaleDateString('ru-RU', { day:'2-digit', month:'2-digit', year:'numeric' }); }
@@ -511,69 +487,22 @@ function statusClass(s) { return (s==='Одобрено'||s==='Одобрен')?
 // ДОСТУПЫ
 function isAdmin() { return currentUser && (currentUser.role === 'main' || currentUser.role === 'deputy' || currentUser.role === 'dev'); }
 function isBoss() { return currentUser && (currentUser.role === 'main' || currentUser.role === 'deputy' || currentUser.role === 'curator' || currentUser.role === 'dev'); }
-function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
 
 /* ===== АВТОРИЗАЦИЯ ===== */
-function switchAuth(mode) {
-  document.getElementById('auth-tab-login').classList.toggle('active', mode === 'login');
-  document.getElementById('auth-tab-register').classList.toggle('active', mode === 'register');
-  document.getElementById('auth-login').classList.toggle('hidden', mode !== 'login');
-  document.getElementById('auth-register').classList.toggle('hidden', mode !== 'register');
-  document.getElementById('login-msg').style.display = 'none';
-  document.getElementById('reg-msg').style.display = 'none';
-}
 function showMsg(id, text, type) {
   const el = document.getElementById(id);
   el.textContent = text; el.className = 'auth-msg ' + type; el.style.display = 'block';
 }
 function doLogin() {
-  const email = document.getElementById('login-email').value.trim();
+  const nick = document.getElementById('login-nick').value.trim();
   const pass = document.getElementById('login-pass').value;
-  if (!email || !pass) return showMsg('login-msg', 'Введите Email и пароль', 'error');
-  if (!validEmail(email)) return showMsg('login-msg', 'Некорректный Email', 'error');
+  if (!nick || !pass) return showMsg('login-msg', 'Введите Nickname и пароль', 'error');
 
-  const acc = DB.accounts.find(a => a.email.toLowerCase() === email.toLowerCase());
+  const acc = DB.accounts.find(a => a.nick.toLowerCase() === nick.toLowerCase());
   if (!acc) return showMsg('login-msg', 'Аккаунт не найден', 'error');
   if (acc.pass !== pass) return showMsg('login-msg', 'Неверный пароль', 'error');
-  if (acc.status === 'На рассмотрении') return showMsg('login-msg', 'Аккаунт ожидает одобрения', 'info');
-  if (acc.status === 'Отклонено') return showMsg('login-msg', 'Аккаунт отклонён', 'error');
   
   currentUser = acc; enterApp();
-}
-function requestRegisterCode() {
-  const nick = document.getElementById('reg-nick').value.trim();
-  const email = document.getElementById('reg-email').value.trim();
-  const pass = document.getElementById('reg-pass').value;
-  const pass2 = document.getElementById('reg-pass2').value;
-  const role = document.getElementById('reg-role').value;
-
-  if (!nick || nick.length < 3) return showMsg('reg-msg', 'Никнейм от 3 символов', 'error');
-  if (!validEmail(email)) return showMsg('reg-msg', 'Некорректный Email', 'error');
-  if (!pass || pass.length < 4) return showMsg('reg-msg', 'Пароль от 4 символов', 'error');
-  if (pass !== pass2) return showMsg('reg-msg', 'Пароли не совпадают', 'error');
-  if (DB.accounts.some(a => a.email.toLowerCase() === email.toLowerCase())) return showMsg('reg-msg', 'Email занят', 'error');
-  if (DB.accounts.some(a => a.nick.toLowerCase() === nick.toLowerCase())) return showMsg('reg-msg', 'Никнейм занят', 'error');
-
-  pendingReg = { nick, email, pass, role };
-  currentRegCode = String(Math.floor(100000 + Math.random() * 900000));
-  
-  document.getElementById('reg-code-step').classList.remove('hidden');
-  document.getElementById('reg-code-step').style.display = 'flex';
-  document.getElementById('reg-code-email').textContent = email;
-  document.getElementById('reg-code-demo').textContent = currentRegCode;
-  document.getElementById('reg-code').value = '';
-  showMsg('reg-msg', 'Код отправлен (см. выше).', 'ok');
-}
-function confirmRegister() {
-  const input = document.getElementById('reg-code').value.trim();
-  if (!pendingReg) return showMsg('reg-msg', 'Запросите код', 'error');
-  if (input !== currentRegCode) return showMsg('reg-msg', 'Неверный код', 'error');
-
-  DB.accounts.push({ id: ++C.accounts, nick: pendingReg.nick, email: pendingReg.email, pass: pendingReg.pass, role: pendingReg.role, status: 'На рассмотрении', date: today() });
-  showMsg('reg-msg', 'Заявка отправлена! Ожидайте.', 'ok');
-  document.getElementById('reg-code-step').classList.add('hidden');
-  ['reg-nick','reg-email','reg-pass','reg-pass2','reg-code'].forEach(id => document.getElementById(id).value = '');
-  pendingReg = null; currentRegCode = null;
 }
 function enterApp() {
   document.getElementById('auth-screen').classList.add('hidden');
@@ -587,8 +516,7 @@ function logout() {
   currentUser = null;
   document.getElementById('app-screen').classList.add('hidden');
   document.getElementById('auth-screen').classList.remove('hidden');
-  document.getElementById('login-email').value = ''; document.getElementById('login-pass').value = '';
-  switchAuth('login');
+  document.getElementById('login-nick').value = ''; document.getElementById('login-pass').value = '';
 }
 
 /* ===== НАВИГАЦИЯ ===== */
@@ -622,9 +550,16 @@ function updateAccess() {
 
 // Обновление выпадающих списков никнеймов (только одобренные пользователи)
 function updateSelects() {
-  const approved = DB.accounts.filter(a => a.status === 'Одобрен').map(a => a.nick);
+  const approved = DB.accounts.map(a => a.nick);
   
-  ['rep-nick', 'ina-nick', 'rec-nick', 'rev-admin', 'pt-name'].forEach(id => {
+  // Для отчётов, неактива и рекордов - фиксируем на текущем пользователе
+  ['rep-nick', 'ina-nick', 'rec-nick'].forEach(id => {
+    const sel = document.getElementById(id);
+    if(sel) sel.innerHTML = `<option value="${currentUser.nick}">${currentUser.nick}</option>`;
+  });
+
+  // Для остальных - список всех
+  ['rev-admin', 'pt-name'].forEach(id => {
     const sel = document.getElementById(id);
     if(!sel) return;
     const val = sel.value;
@@ -632,7 +567,6 @@ function updateSelects() {
     if (approved.includes(val)) sel.value = val;
   });
 
-  // Для нарушителя (rev-nick) тоже список, но это могут быть любые пользователи (по факту все)
   const revSel = document.getElementById('rev-nick');
   if(revSel) revSel.innerHTML = approved.map(n => `<option value="${n}">${n}</option>`).join('');
 
@@ -640,6 +574,14 @@ function updateSelects() {
   const rightSel = document.getElementById('right-name');
   if(rightSel) {
     rightSel.innerHTML = DB.modTable.map(m => `<option value="${m.nick}">${m.nick} (${m.role})</option>`).join('');
+  }
+
+  // В добавлении в таблицу - те, кого там еще нет
+  const mtSel = document.getElementById('mt-nick-select');
+  if(mtSel) {
+    const existing = DB.modTable.map(m => m.nick);
+    const available = DB.accounts.filter(a => !existing.includes(a.nick) && a.role !== 'dev').map(a => a.nick);
+    mtSel.innerHTML = available.map(n => `<option value="${n}">${n}</option>`).join('');
   }
 }
 
@@ -652,13 +594,13 @@ function renderAll() {
 
 /* ===== ОТЧЁТЫ ===== */
 function addReport() {
-  const nick = document.getElementById('rep-nick').value;
+  const nick = currentUser.nick; // Автоматически
   const what = document.getElementById('rep-what').value.trim();
   const count = parseInt(document.getElementById('rep-count').value, 10);
   const punish = parseInt(document.getElementById('rep-punish').value, 10) || 0;
   const proof = document.getElementById('rep-proof').value.trim();
   const date = document.getElementById('rep-date').value;
-  if (!nick || !what || !count || count < 1) return alert('Заполните обязательные поля');
+  if (!what || !count || count < 1) return alert('Заполните обязательные поля');
   DB.reports.push({ id: ++C.reports, nick, what, count, punish, proof: proof || '—', date: date || today(), status: 'На рассмотрении' });
   ['rep-what','rep-count','rep-punish','rep-proof','rep-date'].forEach(id => document.getElementById(id).value = '');
   renderReports(); renderCheck();
@@ -677,11 +619,11 @@ function renderReports() {
 
 /* ===== НЕАКТИВ ===== */
 function addInactive() {
-  const nick = document.getElementById('ina-nick').value;
+  const nick = currentUser.nick;
   const reason = document.getElementById('ina-reason').value.trim();
   const from = document.getElementById('ina-from').value;
   const to = document.getElementById('ina-to').value;
-  if (!nick || !reason) return alert('Заполните поля');
+  if (!reason) return alert('Заполните причину');
   DB.inactive.push({ id: ++C.inactive, nick, reason, period: (from||'?') + ' → ' + (to||'?'), status: 'На рассмотрении' });
   ['ina-reason','ina-from','ina-to'].forEach(id => document.getElementById(id).value = '');
   renderInactive(); renderCheck();
@@ -716,11 +658,11 @@ function renderRevoke() {
 
 /* ===== РЕКОРДЫ ===== */
 function addRecord() {
-  const nick = document.getElementById('rec-nick').value;
+  const nick = currentUser.nick;
   const type = document.getElementById('rec-type').value;
   const val = document.getElementById('rec-value').value;
   const proof = document.getElementById('rec-proof').value.trim();
-  if (!nick || !val) return alert('Заполните Nickname и значение');
+  if (!val) return alert('Заполните значение');
   DB.records.push({ id: ++C.records, nick, type, value: val, proof, status: 'На рассмотрении' });
   ['rec-value','rec-proof'].forEach(id => document.getElementById(id).value = '');
   renderRecords(); renderCheck();
@@ -807,7 +749,7 @@ function renderProfile() {
   document.getElementById('prof-nick').textContent = currentUser.nick;
   document.getElementById('prof-role').textContent = ROLE_LABELS[currentUser.role] || currentUser.role;
   document.getElementById('prof-role').className = 'badge ' + roleClass(ROLE_LABELS[currentUser.role] || currentUser.role);
-  document.getElementById('prof-email').textContent = currentUser.email;
+  document.getElementById('prof-email').textContent = 'Система: закрытая';
 
   const userPoints = DB.points.filter(p => p.name === currentUser.nick).reduce((sum, p) => sum + p.amount, 0);
   const userPunish = DB.reports.filter(r => r.nick === currentUser.nick && r.status === 'Одобрено').reduce((sum, r) => sum + (r.punish||0), 0);
@@ -823,13 +765,13 @@ function renderProfile() {
 /* ===== ТАБЛИЦА МОДЕРАЦИИ ===== */
 function addModTable() {
   if (!isBoss()) return;
-  const nick = document.getElementById('mt-nick').value.trim();
+  const nick = document.getElementById('mt-nick-select').value;
   const role = document.getElementById('mt-role').value;
   const days = parseInt(document.getElementById('mt-days').value, 10) || 0;
-  if (!nick) return alert('Укажите Nickname');
+  if (!nick) return alert('Укажите пользователя');
   
   DB.modTable.push({ id: ++C.modTable, nick, role, days });
-  ['mt-nick','mt-days'].forEach(id => document.getElementById(id).value = '');
+  ['mt-days'].forEach(id => document.getElementById(id).value = '');
   renderModTable(); updateSelects();
 }
 function editModDays(id, val) {
@@ -867,6 +809,43 @@ function renderModTable() {
       ${actions}
     </tr>`;
   }).join('');
+}
+
+/* ===== УПРАВЛЕНИЕ АККАУНТАМИ ===== */
+function createAccount() {
+  if (!isAdmin()) return;
+  const nick = document.getElementById('new-acc-nick').value.trim();
+  const pass = document.getElementById('new-acc-pass').value;
+  const roleStr = document.getElementById('new-acc-role').value;
+  const roleKey = ROLE_KEYS[roleStr] || 'junior';
+
+  if (!nick || !pass) return alert('Заполните Nickname и Пароль');
+  if (DB.accounts.some(a => a.nick.toLowerCase() === nick.toLowerCase())) return alert('Никнейм уже занят');
+
+  DB.accounts.push({ id: ++C.accounts, nick, pass, role: roleKey, status: 'Одобрен', date: today() });
+  
+  const resDiv = document.getElementById('create-result');
+  resDiv.style.display = 'block';
+  resDiv.innerHTML = `Аккаунт успешно создан!<br><b>Nickname:</b> ${nick}<br><b>Пароль:</b> ${pass}<br><i>Передайте эти данные сотруднику.</i>`;
+  
+  document.getElementById('new-acc-nick').value = '';
+  document.getElementById('new-acc-pass').value = '';
+  
+  renderAccounts(); updateSelects();
+}
+function renderAccounts() {
+  const admin = isAdmin();
+  const tba = document.getElementById('accounts-body');
+  if (!admin) { tba.innerHTML = emptyRow(5, 'Нет доступа'); return; }
+  
+  tba.innerHTML = DB.accounts.map(a => `
+    <tr>
+      <td>${a.id}</td>
+      <td>${esc(a.nick)}</td>
+      <td><span class="badge ${roleClass(ROLE_LABELS[a.role]||a.role)}">${ROLE_LABELS[a.role]||a.role}</span></td>
+      <td>${esc(a.pass)}</td>
+      <td>${a.dev?'<span style="color:#ff6b35;font-size:11px">DEV</span>':`<button class="small danger" onclick="DB.accounts=DB.accounts.filter(x=>x.id!==${a.id});renderAccounts();updateSelects();">✖</button>`}</td>
+    </tr>`).join('');
 }
 
 /* ===== ПРОЧИЕ АДМИНКИ ===== */
@@ -941,7 +920,6 @@ function appRev(id) {
   if(r){ 
     r.status='Одобрено'; 
     const penalty = r.type === 'Предупреждение' ? -7 : -15;
-    // Отнимаем баллы у того, КТО ВЫДАЛ наказание, как указано в задании
     DB.points.push({ id: ++C.points, name: r.admin, amount: penalty, reason: 'Снятие ' + r.type + ' (нарушитель: ' + r.nick + ')', date: today() });
     renderCheck(); renderRevoke(); renderPoints(); renderModTable(); 
   } 
@@ -949,35 +927,6 @@ function appRev(id) {
 function rejRev(id) { const r = DB.revokes.find(x=>x.id===id); if(r){ r.status='Отклонено'; renderCheck(); renderRevoke(); } }
 function appRec(id) { const r = DB.records.find(x=>x.id===id); if(r){ r.status='Одобрено'; renderCheck(); renderRecords(); } }
 function rejRec(id) { const r = DB.records.find(x=>x.id===id); if(r){ r.status='Отклонено'; renderCheck(); renderRecords(); } }
-
-function renderAccounts() {
-  const admin = isAdmin();
-  const tb = document.getElementById('accounts-body');
-  const pend = DB.accounts.filter(a=>a.status==='На рассмотрении');
-  if (!admin) { tb.innerHTML = emptyRow(5, 'Нет доступа'); } 
-  else { tb.innerHTML = pend.length ? pend.map(a => `
-    <tr><td>${a.id}</td><td>${esc(a.nick)}</td><td>${esc(a.email)}</td><td>${ROLE_LABELS[a.role]||a.role}</td>
-    <td><button class="small ok" onclick="appAcc(${a.id})">✔</button><button class="small danger" onclick="rejAcc(${a.id})">✖</button></td></tr>`).join('') : emptyRow(5, 'Нет заявок'); }
-
-  const tba = document.getElementById('accounts-active-body');
-  const act = DB.accounts.filter(a=>a.status==='Одобрен');
-  if (!admin) { tba.innerHTML = emptyRow(5); }
-  else { tba.innerHTML = act.map(a => `
-    <tr><td>${a.id}</td><td>${esc(a.nick)}</td><td>${esc(a.email)}</td><td>${ROLE_LABELS[a.role]||a.role}</td>
-    <td>${a.dev?'<span style="color:#ff6b35;font-size:11px">DEV</span>':`<button class="small danger" onclick="DB.accounts=DB.accounts.filter(x=>x.id!==${a.id});renderAccounts();updateSelects();">✖</button>`}</td></tr>`).join(''); }
-}
-function appAcc(id) { 
-  const a = DB.accounts.find(x=>x.id===id); 
-  if(a){ 
-    a.status='Одобрен'; 
-    // Автоматически добавляем в таблицу модерации при одобрении
-    if (!DB.modTable.some(m=>m.nick===a.nick)) {
-      DB.modTable.push({ id: ++C.modTable, nick: a.nick, role: ROLE_LABELS[a.role], days: 0 });
-    }
-    renderAccounts(); updateSelects(); renderModTable(); 
-  } 
-}
-function rejAcc(id) { const a = DB.accounts.find(x=>x.id===id); if(a){ a.status='Отклонено'; renderAccounts(); } }
 
 function addPoints() {
   if (!isAdmin()) return;
@@ -1007,4 +956,4 @@ function renderPoints() {
 renderAll();
 </script>
 </body>
-     </html>
+ </html>
