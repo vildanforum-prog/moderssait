@@ -12,8 +12,6 @@
     background: #1a1d21; color: #e4e6eb; min-height: 100vh;
     display: flex; flex-direction: column;
   }
-
-  /* ===== AUTH ===== */
   #auth-screen {
     position: fixed; inset: 0;
     background: radial-gradient(circle at top, #24282e, #121417);
@@ -26,27 +24,13 @@
     box-shadow: 0 24px 60px rgba(0,0,0,.55);
   }
   .auth-logo { text-align: center; font-size: 44px; margin-bottom: 6px; }
-  .auth-box h2 {
-    color: #ff6b35; font-size: 22px; margin-bottom: 6px;
-    text-align: center; letter-spacing: 1px;
-  }
+  .auth-box h2 { color: #ff6b35; font-size: 22px; margin-bottom: 6px; text-align: center; letter-spacing: 1px; }
   .auth-box .sub { text-align: center; color: #888; font-size: 13px; margin-bottom: 24px; }
-  .auth-tabs {
-    display: flex; gap: 4px; margin-bottom: 20px;
-    background: #1a1d21; padding: 4px; border-radius: 10px;
-  }
-  .auth-tabs button {
-    flex: 1; padding: 10px; background: transparent; color: #aaa;
-    border: none; border-radius: 7px; font-size: 13px; font-weight: 600;
-    cursor: pointer; transition: .2s; font-family: inherit;
-  }
+  .auth-tabs { display: flex; gap: 4px; margin-bottom: 20px; background: #1a1d21; padding: 4px; border-radius: 10px; }
+  .auth-tabs button { flex: 1; padding: 10px; background: transparent; color: #aaa; border: none; border-radius: 7px; font-size: 13px; font-weight: 600; cursor: pointer; transition: .2s; font-family: inherit; }
   .auth-tabs button.active { background: #ff6b35; color: #fff; }
   .auth-form { display: flex; flex-direction: column; gap: 11px; }
-  .auth-form input, .auth-form select {
-    background: #1a1d21; border: 1px solid #3a3f47; color: #e4e6eb;
-    padding: 12px 14px; border-radius: 8px; font-size: 14px; outline: none;
-    width: 100%; font-family: inherit;
-  }
+  .auth-form input, .auth-form select { background: #1a1d21; border: 1px solid #3a3f47; color: #e4e6eb; padding: 12px 14px; border-radius: 8px; font-size: 14px; outline: none; width: 100%; font-family: inherit; }
   .auth-form input:focus, .auth-form select:focus { border-color: #ff6b35; }
   .auth-form button { padding: 13px; font-size: 14px; border-radius: 8px; margin-top: 8px; }
   .auth-msg { font-size: 13px; padding: 11px; border-radius: 8px; margin-top: 8px; text-align: center; line-height: 1.4; }
@@ -54,33 +38,17 @@
   .auth-msg.ok { background: #27ae6033; color: #58d68d; border: 1px solid #27ae60; }
   .auth-msg.info { background: #3498db33; color: #5dade2; border: 1px solid #3498db; }
   .auth-footer { text-align: center; color: #555; font-size: 11px; margin-top: 18px; }
-  .code-hint {
-    background: #ff6b3522; border: 1px dashed #ff6b35; color: #ff8555;
-    padding: 10px; border-radius: 8px; font-size: 12px; text-align: center;
-  }
+  .code-hint { background: #ff6b3522; border: 1px dashed #ff6b35; color: #ff8555; padding: 10px; border-radius: 8px; font-size: 12px; text-align: center; }
   .code-hint b { font-size: 20px; letter-spacing: 4px; color: #ff6b35; }
 
-  /* ===== MAIN ===== */
   #app-screen { display: flex; flex-direction: column; min-height: 100vh; }
-  header {
-    background: linear-gradient(90deg, #2b2f36, #3a3f47);
-    padding: 14px 24px; border-bottom: 2px solid #ff6b35;
-    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-    position: sticky; top: 0; z-index: 100;
-  }
+  header { background: linear-gradient(90deg, #2b2f36, #3a3f47); padding: 14px 24px; border-bottom: 2px solid #ff6b35; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
   header h1 { font-size: 19px; color: #ff6b35; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
   .user-box { margin-left: auto; display: flex; gap: 10px; align-items: center; font-size: 13px; color: #c9d1d9; flex-wrap: wrap; }
-  .user-box .pill { background: #ff6b3522; border: 1px solid #ff6b35; padding: 6px 12px; border-radius: 20px; color: #ff8555; font-weight: 600; }
+  .user-box .pill { background: #ff6b3522; border: 1px solid #ff6b35; padding: 6px 12px; border-radius: 20px; color: #ff8555; font-weight: 600; cursor: pointer; }
   
-  .tabs {
-    display: flex; gap: 6px; flex-wrap: wrap; padding: 12px 24px; background: #1f2328;
-    border-bottom: 1px solid #3a3f47; position: sticky; top: 55px; z-index: 99;
-  }
-  .tab-btn {
-    background: #2b2f36; color: #c9d1d9; border: 1px solid #3a3f47;
-    padding: 8px 14px; border-radius: 6px; cursor: pointer;
-    font-size: 13px; transition: .2s; font-family: inherit;
-  }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; padding: 12px 24px; background: #1f2328; border-bottom: 1px solid #3a3f47; position: sticky; top: 55px; z-index: 99; }
+  .tab-btn { background: #2b2f36; color: #c9d1d9; border: 1px solid #3a3f47; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: .2s; font-family: inherit; }
   .tab-btn:hover { background: #3a3f47; }
   .tab-btn.active { background: #ff6b35; color: #fff; border-color: #ff6b35; font-weight: 600; }
   .tab-btn.hidden { display: none !important; }
@@ -92,19 +60,11 @@
   .card { background: #24282e; border: 1px solid #3a3f47; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
   .card h2 { font-size: 16px; color: #ff6b35; margin-bottom: 16px; border-left: 3px solid #ff6b35; padding-left: 10px; }
   .form-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
-  input, select, textarea {
-    background: #1a1d21; border: 1px solid #3a3f47; color: #e4e6eb;
-    padding: 10px 12px; border-radius: 6px; font-size: 13px;
-    font-family: inherit; outline: none; transition: .2s;
-  }
+  input, select, textarea { background: #1a1d21; border: 1px solid #3a3f47; color: #e4e6eb; padding: 10px 12px; border-radius: 6px; font-size: 13px; font-family: inherit; outline: none; transition: .2s; }
   input:focus, select:focus, textarea:focus { border-color: #ff6b35; }
   textarea { width: 100%; min-height: 80px; resize: vertical; }
   input[type="text"], input[type="number"], input[type="date"], input[type="email"] { flex: 1; min-width: 130px; }
-  button {
-    background: #ff6b35; color: #fff; border: none; padding: 10px 18px;
-    border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;
-    transition: .2s; font-family: inherit;
-  }
+  button { background: #ff6b35; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: .2s; font-family: inherit; }
   button:hover { background: #ff8555; }
   button.secondary { background: #3a3f47; } button.secondary:hover { background: #4a4f57; }
   button.danger { background: #c0392b; } button.danger:hover { background: #e74c3c; }
@@ -125,6 +85,7 @@
   .badge.curator { background: #9b59b633; color: #bb8fce; border: 1px solid #9b59b6; }
   .badge.deputy { background: #e74c3c33; color: #ec7063; border: 1px solid #e74c3c; }
   .badge.main { background: #ff6b3533; color: #ff8555; border: 1px solid #ff6b35; }
+  .badge.dev { background: #00000088; color: #fff; border: 1px solid #fff; }
   .badge.user { background: #55555533; color: #aaa; border: 1px solid #555; }
 
   .points { font-weight: 700; color: #ff6b35; }
@@ -137,21 +98,28 @@
   .status-pending { color: #f1c40f; }
   .status-approved { color: #58d68d; }
   .status-rejected { color: #ec7063; }
-  
-  .login-hint { background:#2b2f36; border:1px solid #3a3f47; padding:10px 14px; border-radius:6px; font-size:12px; color:#aaa; margin-top:12px; }
-  .login-hint code { color:#ff8555; }
   .hidden { display: none !important; }
   footer { text-align: center; padding: 16px; font-size: 11px; color: #555; border-top: 1px solid #3a3f47; margin-top: 20px; }
 
-  .forum-topic { background: #2b2f36; border: 1px solid #3a3f47; border-left: 4px solid #ff6b35; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+  .forum-topic { background: #2b2f36; border: 1px solid #3a3f47; border-left: 4px solid #ff6b35; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; cursor: pointer; transition: .2s; }
+  .forum-topic:hover { background: #32373f; }
   .forum-topic h3 { font-size: 15px; color: #fff; margin-bottom: 6px; }
   .forum-topic .meta { font-size: 11px; color: #888; margin-bottom: 8px; }
-  .forum-topic p { font-size: 13px; color: #c9d1d9; line-height: 1.5; white-space: pre-wrap; }
+  .forum-topic p { font-size: 13px; color: #c9d1d9; line-height: 1.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  
+  .profile-card { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
+  .profile-avatar { width: 80px; height: 80px; background: #3a3f47; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px; }
+  .profile-info h3 { color: #fff; margin-bottom: 6px; }
+  .profile-info .badge { margin-bottom: 10px; }
+  .profile-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; width: 100%; margin-top: 12px; }
+  
+  .wheel-container { position: relative; width: 260px; height: 260px; margin: 0 auto 20px; }
+  .wheel { width: 100%; height: 100%; border-radius: 50%; border: 6px solid #ff6b35; transition: transform 4s cubic-bezier(.17,.67,.12,.99); }
+  .wheel-pointer { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-size: 24px; color: #ff6b35; z-index: 2; }
 </style>
 </head>
 <body>
 
-<!-- ===== ЭКРАН ВХОДА / РЕГИСТРАЦИИ ===== -->
 <div id="auth-screen">
   <div class="auth-box">
     <div class="auth-logo">🛡️</div>
@@ -163,7 +131,6 @@
       <button id="auth-tab-register" onclick="switchAuth('register')">Регистрация</button>
     </div>
 
-    <!-- ВХОД -->
     <div class="auth-form" id="auth-login">
       <input type="email" id="login-email" placeholder="Email" autocomplete="username">
       <input type="password" id="login-pass" placeholder="Пароль" autocomplete="current-password" onkeydown="if(event.key==='Enter') doLogin()">
@@ -171,7 +138,6 @@
       <div class="auth-msg" id="login-msg" style="display:none"></div>
     </div>
 
-    <!-- РЕГИСТРАЦИЯ -->
     <div class="auth-form hidden" id="auth-register">
       <input type="text" id="reg-nick" placeholder="Nickname">
       <input type="email" id="reg-email" placeholder="Email">
@@ -183,35 +149,31 @@
         <option value="senior">Старший модератор</option>
         <option value="curator">Куратор модерации</option>
         <option value="deputy">Зам. Главного модератора</option>
+        <option value="main">Главный модератор</option>
       </select>
       <button onclick="requestRegisterCode()">Получить код на почту</button>
       <div class="auth-msg" id="reg-msg" style="display:none"></div>
 
-      <!-- Шаг подтверждения кода -->
       <div id="reg-code-step" class="hidden" style="flex-direction:column;gap:11px;margin-top:8px;">
         <div class="code-hint">
           Код отправлен на <b id="reg-code-email">—</b><br>
           <span style="font-size:11px;color:#aaa">(демо-режим: ваш код — <b id="reg-code-demo" style="font-size:14px;letter-spacing:2px;">————</b>)</span>
         </div>
-        <input type="text" id="reg-code" placeholder="Введите код из письма" maxlength="6"
-               style="text-align:center;letter-spacing:6px;font-size:18px;"
-               onkeydown="if(event.key==='Enter') confirmRegister()">
-        <button onclick="confirmRegister()">Подтвердить и зарегистрироваться</button>
-        <button class="secondary" onclick="requestRegisterCode()">Отправить код повторно</button>
+        <input type="text" id="reg-code" placeholder="Введите код" maxlength="6" style="text-align:center;letter-spacing:6px;font-size:18px;" onkeydown="if(event.key==='Enter') confirmRegister()">
+        <button onclick="confirmRegister()">Подтвердить</button>
+        <button class="secondary" onclick="requestRegisterCode()">Отправить снова</button>
       </div>
     </div>
-
     <div class="auth-footer">© 2025 Панель модерации</div>
   </div>
 </div>
 
-<!-- ===== ОСНОВНОЙ САЙТ ===== -->
 <div id="app-screen" class="hidden">
   <header>
     <h1>🛡️ ПАНЕЛЬ МОДЕРАЦИИ</h1>
     <div class="user-box">
       <span id="who-label">—</span>
-      <span class="pill" id="who-pill">—</span>
+      <span class="pill" id="who-pill" onclick="switchTab('profile')">—</span>
       <button class="secondary small" onclick="logout()">Выйти</button>
     </div>
   </header>
@@ -219,7 +181,13 @@
   <div class="tabs">
     <button class="tab-btn active" data-tab="reports">📋 Отчётность</button>
     <button class="tab-btn" data-tab="inactive">⏳ Неактив</button>
+    <button class="tab-btn" data-tab="punish_revoke">⚖️ Снятие наказаний</button>
+    <button class="tab-btn" data-tab="records">🏆 Рекорды</button>
+    <button class="tab-btn" data-tab="wheel">🎡 Рулетка</button>
     <button class="tab-btn" data-tab="forum">💬 Темы</button>
+    <button class="tab-btn" data-tab="profile">👤 Мой профиль</button>
+    
+    <button class="tab-btn hidden" data-tab="mod_table" id="tab-mod_table">📊 Таблица модерации</button>
     <button class="tab-btn hidden" data-tab="rights" id="tab-rights">🔑 Права</button>
     <button class="tab-btn hidden" data-tab="check" id="tab-check">✅ Проверка форм</button>
     <button class="tab-btn hidden" data-tab="accounts" id="tab-accounts">👥 Аккаунты</button>
@@ -227,7 +195,6 @@
   </div>
 
   <main>
-    <!-- ОТЧЁТНОСТЬ -->
     <section class="panel active" id="reports">
       <div class="card">
         <h2>Отправить отчёт</h2>
@@ -240,31 +207,29 @@
             <option value="Куратор модерации">Куратор модерации</option>
             <option value="Зам. Главного модератора">Зам. Главного модератора</option>
             <option value="Главный модератор">Главный модератор</option>
+            <option value="Разработчик">Разработчик</option>
           </select>
         </div>
         <div class="form-row">
           <input type="text" id="rep-what" placeholder="3. Что было проделано" style="flex:2">
           <input type="number" id="rep-count" placeholder="4. Кол-во действий" min="1">
+          <input type="number" id="rep-punish" placeholder="5. Выдано наказаний" min="0">
         </div>
         <div class="form-row">
-          <input type="text" id="rep-proof" placeholder="5. Доказательства (ссылка/скрин)" style="flex:1">
-          <input type="date" id="rep-date" title="6. Дата">
-          <button onclick="addReport()">Отправить отчёт</button>
+          <input type="text" id="rep-proof" placeholder="6. Доказательства" style="flex:1">
+          <input type="date" id="rep-date" title="7. Дата">
+          <button onclick="addReport()">Отправить</button>
         </div>
-        <div class="login-hint">1 действие = 1 балл. Баллы начисляются автоматически после одобрения отчёта.</div>
       </div>
       <div class="card">
         <h2>Мои отчёты</h2>
-        <div class="scroll">
-          <table>
-            <thead><tr><th>#</th><th>Nickname</th><th>Должность</th><th>Проделано</th><th>Действий</th><th>Доказательства</th><th>Дата</th><th>Статус</th></tr></thead>
-            <tbody id="reports-body"></tbody>
-          </table>
-        </div>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Nickname</th><th>Проделано</th><th>Действий</th><th>Наказаний</th><th>Док-ва</th><th>Дата</th><th>Статус</th></tr></thead>
+          <tbody id="reports-body"></tbody>
+        </table></div>
       </div>
     </section>
 
-    <!-- НЕАКТИВ -->
     <section class="panel" id="inactive">
       <div class="card">
         <h2>Заявка на неактив</h2>
@@ -277,29 +242,161 @@
             <option value="Куратор модерации">Куратор модерации</option>
             <option value="Зам. Главного модератора">Зам. Главного модератора</option>
             <option value="Главный модератор">Главный модератор</option>
+            <option value="Разработчик">Разработчик</option>
           </select>
         </div>
         <div class="form-row">
           <input type="text" id="ina-reason" placeholder="3. Причина неактива" style="flex:2">
-        </div>
-        <div class="form-row">
-          <input type="date" id="ina-from" title="4. С какого числа">
-          <input type="date" id="ina-to" title="4. По какое число">
-          <button onclick="addInactive()">Подать заявку</button>
+          <input type="date" id="ina-from" title="С">
+          <input type="date" id="ina-to" title="По">
+          <button onclick="addInactive()">Подать</button>
         </div>
       </div>
       <div class="card">
         <h2>Мои заявки</h2>
-        <div class="scroll">
-          <table>
-            <thead><tr><th>#</th><th>Nickname</th><th>Должность</th><th>Причина</th><th>Период</th><th>Статус</th></tr></thead>
-            <tbody id="inactive-body"></tbody>
-          </table>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Nickname</th><th>Причина</th><th>Период</th><th>Статус</th></tr></thead>
+          <tbody id="inactive-body"></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="panel" id="punish_revoke">
+      <div class="card">
+        <h2>Заявка на снятие наказания</h2>
+        <div class="form-row">
+          <input type="text" id="rev-nick" placeholder="Никнейм нарушителя">
+          <input type="text" id="rev-admin" placeholder="Кто выдал наказание">
+        </div>
+        <div class="form-row">
+          <input type="text" id="rev-reason" placeholder="Причина снятия" style="flex:1">
+          <button onclick="addRevoke()">Подать заявку</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Заявки на снятие</h2>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Нарушитель</th><th>Кто выдал</th><th>Причина</th><th>Статус</th></tr></thead>
+          <tbody id="punish_revoke-body"></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="panel" id="records">
+      <div class="card">
+        <h2>Подать заявку на рекорд</h2>
+        <div class="form-row">
+          <input type="text" id="rec-nick" placeholder="Ваш Nickname">
+          <select id="rec-type">
+            <option value="По наказаниям за все время">По наказаниям за все время</option>
+            <option value="По минутам в войсе за день">По минутам в войсе за день</option>
+            <option value="По сообщениям за день">По сообщениям за день</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <input type="number" id="rec-value" placeholder="Значение (кол-во)">
+          <input type="text" id="rec-proof" placeholder="Доказательства" style="flex:1">
+          <button onclick="addRecord()">Подать</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Текущие рекорды</h2>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Nickname</th><th>Тип рекорда</th><th>Значение</th><th>Статус</th></tr></thead>
+          <tbody id="records-body"></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="panel" id="wheel">
+      <div class="card">
+        <h2>Рулетка призов</h2>
+        <div class="wheel-container">
+          <div class="wheel-pointer">▼</div>
+          <div class="wheel" id="wheel-graphic" style="background: conic-gradient(#ff6b35 0deg 90deg, #3498db 90deg 180deg, #2ecc71 180deg 270deg, #9b59b6 270deg 360deg);"></div>
+        </div>
+        <div style="text-align:center;margin-bottom:20px;">
+          <button onclick="spinWheel()" id="spin-btn">Крутить!</button>
+          <div id="wheel-result" style="margin-top:12px;font-size:16px;font-weight:bold;color:#ff6b35;"></div>
+        </div>
+      </div>
+      <div class="card hidden" id="wheel-admin-card">
+        <h2>Настройка призов (Руководство)</h2>
+        <div class="form-row">
+          <input type="text" id="wheel-prize" placeholder="Название приза" style="flex:1">
+          <button onclick="addPrize()">Добавить</button>
+        </div>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Приз</th><th></th></tr></thead>
+          <tbody id="wheel-prizes-body"></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="panel" id="forum">
+      <div class="card hidden" id="forum-create-card">
+        <h2>Создать тему (Руководство)</h2>
+        <div class="form-row">
+          <input type="text" id="forum-title" placeholder="Название темы" style="flex:1">
+          <input type="text" id="forum-author" placeholder="Автор (Nickname)">
+        </div>
+        <textarea id="forum-text" placeholder="Текст сообщения..."></textarea>
+        <div class="form-row" style="margin-top:12px">
+          <button onclick="addTopic()">Опубликовать</button>
+        </div>
+      </div>
+      <div class="card" id="forum-view-card" style="display:none;">
+        <button class="secondary small" onclick="closeTopic()" style="margin-bottom:12px;">← Назад</button>
+        <h2 id="topic-view-title"></h2>
+        <div id="topic-view-meta" style="font-size:12px;color:#888;margin-bottom:12px;"></div>
+        <div id="topic-view-text" style="font-size:14px;line-height:1.6;white-space:pre-wrap;"></div>
+      </div>
+      <div class="card" id="forum-list-card">
+        <h2>Список тем</h2>
+        <div id="forum-body"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="profile">
+      <div class="card">
+        <div class="profile-card">
+          <div class="profile-avatar">👤</div>
+          <div class="profile-info">
+            <h3 id="prof-nick">—</h3>
+            <div id="prof-role" class="badge">—</div>
+            <div style="font-size:12px;color:#aaa;" id="prof-email">—</div>
+          </div>
+          <div class="profile-stats" id="prof-stats"></div>
         </div>
       </div>
     </section>
 
-    <!-- ПРАВА -->
+    <section class="panel" id="mod_table">
+      <div class="card">
+        <h2>Таблица модерации</h2>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Должность</th><th>Nickname</th><th>Баллы</th><th>Дней на должности</th></tr></thead>
+          <tbody id="mod-table-body"></tbody>
+        </table></div>
+      </div>
+      <div class="card hidden" id="mod-table-admin">
+        <h2>Редактировать (Руководство)</h2>
+        <div class="form-row">
+          <input type="text" id="mt-nick" placeholder="Nickname">
+          <select id="mt-role">
+            <option value="Главный модератор">Главный модератор</option>
+            <option value="Зам. Главного модератора">Зам. Главного модератора</option>
+            <option value="Куратор модерации">Куратор модерации</option>
+            <option value="Старший модератор">Старший модератор</option>
+            <option value="Модератор">Модератор</option>
+            <option value="Младший модератор">Младший модератор</option>
+          </select>
+          <input type="number" id="mt-days" placeholder="Дней" min="0">
+          <button onclick="addModTable()">Добавить</button>
+        </div>
+      </div>
+    </section>
+
     <section class="panel" id="rights">
       <div class="card">
         <h2>Выдать должность</h2>
@@ -317,99 +414,79 @@
         </div>
       </div>
       <div class="card">
-        <h2>Список сотрудников</h2>
-        <div class="scroll">
-          <table>
-            <thead><tr><th>#</th><th>Пользователь</th><th>Должность</th><th>Дата выдачи</th><th></th></tr></thead>
-            <tbody id="rights-body"></tbody>
-          </table>
-        </div>
+        <h2>Список</h2>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Пользователь</th><th>Должность</th><th>Дата</th><th></th></tr></thead>
+          <tbody id="rights-body"></tbody>
+        </table></div>
       </div>
     </section>
 
-    <!-- ПРОВЕРКА ФОРМ -->
     <section class="panel" id="check">
       <div class="card">
-        <h2>Отчёты на проверку</h2>
-        <div class="scroll">
-          <table>
-            <thead><tr><th>#</th><th>Nickname</th><th>Должность</th><th>Проделано</th><th>Действий</th><th>Доказательства</th><th>Дата</th><th>Статус</th><th>Действие</th></tr></thead>
-            <tbody id="check-reports-body"></tbody>
-          </table>
-        </div>
+        <h2>Отчёты</h2>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Nick</th><th>Проделано</th><th>Баллы</th><th>Наказ.</th><th>Статус</th><th>Действие</th></tr></thead>
+          <tbody id="check-reports-body"></tbody>
+        </table></div>
       </div>
       <div class="card">
-        <h2>Заявки на неактив</h2>
-        <div class="scroll">
-          <table>
-            <thead><tr><th>#</th><th>Nickname</th><th>Должность</th><th>Причина</th><th>Период</th><th>Статус</th><th>Действие</th></tr></thead>
-            <tbody id="check-inactive-body"></tbody>
-          </table>
-        </div>
+        <h2>Неактив</h2>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Nick</th><th>Период</th><th>Статус</th><th>Действие</th></tr></thead>
+          <tbody id="check-inactive-body"></tbody>
+        </table></div>
+      </div>
+      <div class="card">
+        <h2>Снятие наказаний</h2>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Нарушитель</th><th>Кто выдал</th><th>Причина</th><th>Статус</th><th>Действие</th></tr></thead>
+          <tbody id="check-revoke-body"></tbody>
+        </table></div>
+      </div>
+      <div class="card">
+        <h2>Рекорды</h2>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Nick</th><th>Тип</th><th>Значение</th><th>Статус</th><th>Действие</th></tr></thead>
+          <tbody id="check-records-body"></tbody>
+        </table></div>
       </div>
     </section>
 
-    <!-- АККАУНТЫ -->
     <section class="panel" id="accounts">
       <div class="card">
-        <h2>Заявки на регистрацию</h2>
-        <div class="scroll">
-          <table>
-            <thead><tr><th>#</th><th>Nickname</th><th>Email</th><th>Запрошенная роль</th><th>Дата</th><th>Статус</th><th>Действие</th></tr></thead>
-            <tbody id="accounts-body"></tbody>
-          </table>
-        </div>
+        <h2>Заявки</h2>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Nickname</th><th>Email</th><th>Роль</th><th>Действие</th></tr></thead>
+          <tbody id="accounts-body"></tbody>
+        </table></div>
       </div>
       <div class="card">
-        <h2>Одобренные аккаунты</h2>
-        <div class="scroll">
-          <table>
-            <thead><tr><th>#</th><th>Nickname</th><th>Email</th><th>Роль</th><th>Дата регистрации</th><th></th></tr></thead>
-            <tbody id="accounts-active-body"></tbody>
-          </table>
-        </div>
+        <h2>Одобренные</h2>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Nickname</th><th>Email</th><th>Роль</th><th></th></tr></thead>
+          <tbody id="accounts-active-body"></tbody>
+        </table></div>
       </div>
     </section>
 
-    <!-- БАЛЛЫ -->
     <section class="panel" id="points">
       <div class="stat-grid" id="points-stats"></div>
       <div class="card">
-        <h2>Выдать / списать баллы</h2>
+        <h2>Выдать баллы</h2>
         <div class="form-row">
-          <input type="text" id="pt-name" placeholder="Nickname сотрудника">
+          <input type="text" id="pt-name" placeholder="Nickname">
           <input type="number" id="pt-amount" placeholder="Баллы (+/-)">
           <input type="text" id="pt-reason" placeholder="Причина" style="flex:1">
           <button onclick="addPoints()">Применить</button>
         </div>
       </div>
       <div class="card">
-        <h2>История начислений</h2>
-        <div class="scroll">
-          <table>
-            <thead><tr><th>#</th><th>Сотрудник</th><th>Баллы</th><th>Причина</th><th>Дата</th><th></th></tr></thead>
-            <tbody id="points-body"></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ТЕМЫ -->
-    <section class="panel" id="forum">
-      <div class="card">
-        <h2>Создать тему</h2>
-        <div class="form-row">
-          <input type="text" id="forum-title" placeholder="Название темы" style="flex:1">
-          <input type="text" id="forum-author" placeholder="Автор">
-        </div>
-        <textarea id="forum-text" placeholder="Текст сообщения..."></textarea>
-        <div class="form-row" style="margin-top:12px">
-          <button onclick="addTopic()">Опубликовать</button>
-        </div>
-      </div>
-      <div class="card">
-        <h2>Темы на форуме</h2>
-        <div id="forum-body"></div>
+        <h2>История</h2>
+        <div class="scroll"><table>
+          <thead><tr><th>#</th><th>Сотрудник</th><th>Баллы</th><th>Причина</th><th>Дата</th><th></th></tr></thead>
+          <tbody id="points-body"></tbody>
+        </table></div>
       </div>
     </section>
   </main>
@@ -418,46 +495,40 @@
 
 <script>
 /* ===== ХРАНИЛИЩЕ ===== */
-const DB = { accounts: [], reports: [], inactive: [], rights: [], points: [], topics: [] };
-const C = { accounts: 0, reports: 0, inactive: 0, rights: 0, points: 0, topics: 0 };
+const DB = {
+  accounts: [
+    { id: 1, nick: 'Vildan_Velikii', email: 'vildanforum@gmail.com', pass: 'Admin09080767', role: 'dev', status: 'Одобрен', dev: true, date: new Date().toLocaleDateString('ru-RU') }
+  ],
+  reports: [], inactive: [], rights: [], points: [], topics: [],
+  revokes: [], records: [], prizes: ['500 CR', '1000 CR', 'Автомобиль', 'Скидка 10%'],
+  modTable: [
+    { id: 1, nick: 'Vildan_Velikii', role: 'Главный модератор', days: 365 }
+  ]
+};
+const C = { accounts: 1, reports: 0, inactive: 0, rights: 0, points: 0, topics: 0, revokes: 0, records: 0, modTable: 1 };
 let currentUser = null;
+let currentRegCode = null;
 let pendingReg = null;
-
-const DEV_NICK = 'Vildan_Velikii';
-const DEV_EMAIL = 'vildanforum@gmail.com';
-const DEV_PASS = 'Admin09080767';
 
 const ROLE_LABELS = {
   user: 'Пользователь', junior: 'Младший модератор', mod: 'Модератор',
   senior: 'Старший модератор', curator: 'Куратор модерации',
-  deputy: 'Зам. Главного модератора', main: 'Главный модератор'
+  deputy: 'Зам. Главного модератора', main: 'Главный модератор', dev: 'Разработчик'
 };
 
-/* ===== УТИЛИТЫ ===== */
 function today() { return new Date().toLocaleDateString('ru-RU', { day:'2-digit', month:'2-digit', year:'numeric' }); }
 function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function emptyRow(n, t='Нет записей') { return `<tr><td colspan="${n}" class="empty">${t}</td></tr>`; }
 function roleClass(r) {
-  const m = {'Младший модератор':'junior','Модератор':'mod','Старший модератор':'senior','Куратор модерации':'curator','Зам. Главного модератора':'deputy','Главный модератор':'main'};
+  const m = {'Младший модератор':'junior','Модератор':'mod','Старший модератор':'senior','Куратор модерации':'curator','Зам. Главного модератора':'deputy','Главный модератор':'main','Разработчик':'dev'};
   return m[r] || 'user';
 }
-function statusClass(s) {
-  if (s === 'Одобрено' || s === 'Одобрен') return 'approved';
-  if (s === 'Отклонено' || s === 'Отклонён') return 'rejected';
-  return 'pending';
-}
-function isAdmin() { return currentUser && (currentUser.role === 'main' || currentUser.role === 'deputy'); }
+function statusClass(s) { return (s==='Одобрено'||s==='Одобрен')?'approved':(s==='Отклонено'||s==='Отклонён')?'rejected':'pending'; }
+
+// ДОСТУПЫ
+function isAdmin() { return currentUser && (currentUser.role === 'main' || currentUser.role === 'deputy' || currentUser.role === 'dev'); }
+function isBoss() { return currentUser && (currentUser.role === 'main' || currentUser.role === 'deputy' || currentUser.role === 'curator' || currentUser.role === 'dev'); }
 function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
-
-/* ===== ИНИЦИАЛИЗАЦИЯ РАЗРАБОТЧИКА ===== */
-DB.accounts.push({ id: ++C.accounts, nick: DEV_NICK, email: DEV_EMAIL, pass: DEV_PASS, role: 'main', status: 'Одобрен', dev: true, date: today() });
-
-/* ===== ИМИТАЦИЯ ОТПРАВКИ КОДА ===== */
-function sendEmailCode(email) {
-  const code = String(Math.floor(100000 + Math.random() * 900000));
-  console.log(`[DEV] Код подтверждения для ${email}: ${code}`);
-  return code;
-}
 
 /* ===== АВТОРИЗАЦИЯ ===== */
 function switchAuth(mode) {
@@ -472,31 +543,20 @@ function showMsg(id, text, type) {
   const el = document.getElementById(id);
   el.textContent = text; el.className = 'auth-msg ' + type; el.style.display = 'block';
 }
-
-/* ===== ВХОД ===== */
 function doLogin() {
   const email = document.getElementById('login-email').value.trim();
   const pass = document.getElementById('login-pass').value;
   if (!email || !pass) return showMsg('login-msg', 'Введите Email и пароль', 'error');
   if (!validEmail(email)) return showMsg('login-msg', 'Некорректный Email', 'error');
 
-  if (email.toLowerCase() === DEV_EMAIL.toLowerCase()) {
-    if (pass !== DEV_PASS) return showMsg('login-msg', 'Неверный пароль разработчика', 'error');
-    currentUser = DB.accounts.find(a => a.dev);
-    enterApp(); return;
-  }
   const acc = DB.accounts.find(a => a.email.toLowerCase() === email.toLowerCase());
-  if (!acc) return showMsg('login-msg', 'Аккаунт не найден. Зарегистрируйтесь.', 'error');
+  if (!acc) return showMsg('login-msg', 'Аккаунт не найден', 'error');
   if (acc.pass !== pass) return showMsg('login-msg', 'Неверный пароль', 'error');
-  if (acc.status === 'На рассмотрении') return showMsg('login-msg', 'Аккаунт ожидает одобрения Главного модератора', 'info');
-  if (acc.status === 'Отклонено' || acc.status === 'Отклонён') return showMsg('login-msg', 'Аккаунт отклонён администратором', 'error');
+  if (acc.status === 'На рассмотрении') return showMsg('login-msg', 'Аккаунт ожидает одобрения', 'info');
+  if (acc.status === 'Отклонено') return showMsg('login-msg', 'Аккаунт отклонён', 'error');
+  
   currentUser = acc; enterApp();
 }
-
-/* ===== РЕГИСТРАЦИЯ: ШАГ 1 ===== */
-let currentRegCode = null;
-let currentRegEmail = null;
-
 function requestRegisterCode() {
   const nick = document.getElementById('reg-nick').value.trim();
   const email = document.getElementById('reg-email').value.trim();
@@ -504,57 +564,34 @@ function requestRegisterCode() {
   const pass2 = document.getElementById('reg-pass2').value;
   const role = document.getElementById('reg-role').value;
 
-  if (!nick || nick.length < 3) return showMsg('reg-msg', 'Nickname минимум 3 символа', 'error');
-  if (!validEmail(email)) return showMsg('reg-msg', 'Введите корректный Email', 'error');
-  if (!pass || pass.length < 4) return showMsg('reg-msg', 'Пароль минимум 4 символа', 'error');
+  if (!nick || nick.length < 3) return showMsg('reg-msg', 'Никнейм от 3 символов', 'error');
+  if (!validEmail(email)) return showMsg('reg-msg', 'Некорректный Email', 'error');
+  if (!pass || pass.length < 4) return showMsg('reg-msg', 'Пароль от 4 символов', 'error');
   if (pass !== pass2) return showMsg('reg-msg', 'Пароли не совпадают', 'error');
-  if (DB.accounts.some(a => a.email.toLowerCase() === email.toLowerCase())) return showMsg('reg-msg', 'Этот Email уже зарегистрирован', 'error');
-  if (DB.accounts.some(a => a.nick.toLowerCase() === nick.toLowerCase())) return showMsg('reg-msg', 'Этот Nickname занят', 'error');
+  if (DB.accounts.some(a => a.email.toLowerCase() === email.toLowerCase())) return showMsg('reg-msg', 'Email занят', 'error');
+  if (DB.accounts.some(a => a.nick.toLowerCase() === nick.toLowerCase())) return showMsg('reg-msg', 'Никнейм занят', 'error');
 
-  currentRegEmail = email;
-  currentRegCode = sendEmailCode(email);
   pendingReg = { nick, email, pass, role };
-
-  // Показываем блок ввода кода
+  currentRegCode = String(Math.floor(100000 + Math.random() * 900000));
+  
   document.getElementById('reg-code-step').classList.remove('hidden');
   document.getElementById('reg-code-step').style.display = 'flex';
   document.getElementById('reg-code-email').textContent = email;
   document.getElementById('reg-code-demo').textContent = currentRegCode;
   document.getElementById('reg-code').value = '';
-
-  showMsg('reg-msg', 'Код отправлен на почту. Введите его ниже.', 'ok');
+  showMsg('reg-msg', 'Код отправлен (см. выше).', 'ok');
 }
-
-/* ===== РЕГИСТРАЦИЯ: ШАГ 2 — проверка кода ===== */
 function confirmRegister() {
   const input = document.getElementById('reg-code').value.trim();
-  if (!pendingReg) return showMsg('reg-msg', 'Сначала запросите код', 'error');
-  if (input !== currentRegCode) return showMsg('reg-msg', 'Неверный код подтверждения', 'error');
+  if (!pendingReg) return showMsg('reg-msg', 'Запросите код', 'error');
+  if (input !== currentRegCode) return showMsg('reg-msg', 'Неверный код', 'error');
 
-  // Успех — создаём аккаунт
-  DB.accounts.push({
-    id: ++C.accounts,
-    nick: pendingReg.nick,
-    email: pendingReg.email,
-    pass: pendingReg.pass,
-    role: pendingReg.role,
-    status: 'На рассмотрении',
-    date: today()
-  });
-
-  showMsg('reg-msg', 'Аккаунт создан! Ожидайте одобрения Главного модератора.', 'ok');
+  DB.accounts.push({ id: ++C.accounts, nick: pendingReg.nick, email: pendingReg.email, pass: pendingReg.pass, role: pendingReg.role, status: 'На рассмотрении', date: today() });
+  showMsg('reg-msg', 'Заявка отправлена! Ожидайте.', 'ok');
   document.getElementById('reg-code-step').classList.add('hidden');
-  document.getElementById('reg-code-step').style.display = 'none';
-  document.getElementById('reg-nick').value = '';
-  document.getElementById('reg-email').value = '';
-  document.getElementById('reg-pass').value = '';
-  document.getElementById('reg-pass2').value = '';
-  document.getElementById('reg-code').value = '';
+  ['reg-nick','reg-email','reg-pass','reg-pass2','reg-code'].forEach(id => document.getElementById(id).value = '');
   pendingReg = null; currentRegCode = null;
-  renderAccounts();
 }
-
-/* ===== ВХОД / ВЫХОД ===== */
 function enterApp() {
   document.getElementById('auth-screen').classList.add('hidden');
   document.getElementById('app-screen').classList.remove('hidden');
@@ -579,45 +616,54 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     document.getElementById(btn.dataset.tab).classList.add('active');
   };
 });
+function switchTab(id) {
+  const btn = document.querySelector(`.tab-btn[data-tab="${id}"]`);
+  if (btn && !btn.classList.contains('hidden')) btn.click();
+}
 function updateAccess() {
-  const admin = isAdmin();
+  const admin = isAdmin(), boss = isBoss();
+  // Разработчику (dev) доступно всё
   document.getElementById('tab-rights').classList.toggle('hidden', !admin);
   document.getElementById('tab-check').classList.toggle('hidden', !admin);
   document.getElementById('tab-accounts').classList.toggle('hidden', !admin);
   document.getElementById('tab-points').classList.toggle('hidden', !admin);
+  document.getElementById('tab-mod_table').classList.toggle('hidden', !boss);
+  
+  document.getElementById('wheel-admin-card').classList.toggle('hidden', !admin);
+  document.getElementById('mod-table-admin').classList.toggle('hidden', !boss);
+  document.getElementById('forum-create-card').classList.toggle('hidden', !admin);
 }
 
 /* ===== РЕНДЕР ===== */
 function renderAll() {
-  renderReports(); renderInactive(); renderRights(); renderCheck(); renderAccounts(); renderPoints(); renderForum();
+  renderReports(); renderInactive(); renderRights(); renderCheck(); renderAccounts(); renderPoints();
+  renderForum(); renderProfile(); renderModTable(); renderWheelAdmin(); renderRevoke(); renderRecords();
 }
 
-/* ===== ОТЧЁТНОСТЬ ===== */
+/* ===== ОТЧЁТЫ ===== */
 function addReport() {
   const nick = document.getElementById('rep-nick').value.trim();
   const role = document.getElementById('rep-role').value;
   const what = document.getElementById('rep-what').value.trim();
   const count = parseInt(document.getElementById('rep-count').value, 10);
+  const punish = parseInt(document.getElementById('rep-punish').value, 10) || 0;
   const proof = document.getElementById('rep-proof').value.trim();
   const date = document.getElementById('rep-date').value;
-  if (!nick || !what || !count || count < 1) return alert('Заполните Nickname, проделанную работу и количество действий (≥1)');
-  DB.reports.push({ id: ++C.reports, nick, role, what, count, proof: proof || '—', date: date || today(), status: 'На рассмотрении' });
-  ['rep-nick','rep-what','rep-count','rep-proof','rep-date'].forEach(id => document.getElementById(id).value = '');
+  if (!nick || !what || !count || count < 1) return alert('Заполните обязательные поля');
+  DB.reports.push({ id: ++C.reports, nick, role, what, count, punish, proof: proof || '—', date: date || today(), status: 'На рассмотрении' });
+  ['rep-nick','rep-what','rep-count','rep-punish','rep-proof','rep-date'].forEach(id => document.getElementById(id).value = '');
   renderReports(); renderCheck();
 }
 function renderReports() {
   const tbody = document.getElementById('reports-body');
   if (!DB.reports.length) { tbody.innerHTML = emptyRow(8); return; }
   const list = isAdmin() ? DB.reports : DB.reports.filter(r => r.nick === currentUser.nick);
-  if (!list.length) { tbody.innerHTML = emptyRow(8, 'У вас нет отчётов'); return; }
+  if (!list.length) { tbody.innerHTML = emptyRow(8, 'Нет отчётов'); return; }
   tbody.innerHTML = list.map(r => `
-    <tr>
-      <td>${r.id}</td><td>${esc(r.nick)}</td>
-      <td><span class="badge ${roleClass(r.role)}">${esc(r.role)}</span></td>
-      <td>${esc(r.what)}</td><td class="points">${r.count}</td>
-      <td>${esc(r.proof)}</td><td>${r.date}</td>
-      <td class="status-${statusClass(r.status)}">${r.status}</td>
-    </tr>`).join('');
+    <tr><td>${r.id}</td><td>${esc(r.nick)}</td><td>${esc(r.what)}</td>
+    <td class="points">${r.count}</td><td>${r.punish}</td>
+    <td>${esc(r.proof)}</td><td>${r.date}</td>
+    <td class="status-${statusClass(r.status)}">${r.status}</td></tr>`).join('');
 }
 
 /* ===== НЕАКТИВ ===== */
@@ -628,198 +674,87 @@ function addInactive() {
   const from = document.getElementById('ina-from').value;
   const to = document.getElementById('ina-to').value;
   if (!nick || !reason) return alert('Заполните Nickname и причину');
-  DB.inactive.push({ id: ++C.inactive, nick, role, reason, period: (from || '?') + ' → ' + (to || '?'), status: 'На рассмотрении' });
+  DB.inactive.push({ id: ++C.inactive, nick, role, reason, period: (from||'?') + ' → ' + (to||'?'), status: 'На рассмотрении' });
   ['ina-nick','ina-reason','ina-from','ina-to'].forEach(id => document.getElementById(id).value = '');
   renderInactive(); renderCheck();
 }
 function renderInactive() {
   const tbody = document.getElementById('inactive-body');
-  if (!DB.inactive.length) { tbody.innerHTML = emptyRow(6); return; }
+  if (!DB.inactive.length) { tbody.innerHTML = emptyRow(5); return; }
   const list = isAdmin() ? DB.inactive : DB.inactive.filter(r => r.nick === currentUser.nick);
-  if (!list.length) { tbody.innerHTML = emptyRow(6, 'У вас нет заявок'); return; }
   tbody.innerHTML = list.map(r => `
-    <tr>
-      <td>${r.id}</td><td>${esc(r.nick)}</td>
-      <td><span class="badge ${roleClass(r.role)}">${esc(r.role)}</span></td>
-      <td>${esc(r.reason)}</td><td class="nowrap">${esc(r.period)}</td>
-      <td class="status-${statusClass(r.status)}">${r.status}</td>
-    </tr>`).join('');
+    <tr><td>${r.id}</td><td>${esc(r.nick)}</td><td>${esc(r.reason)}</td>
+    <td>${r.period}</td><td class="status-${statusClass(r.status)}">${r.status}</td></tr>`).join('');
 }
 
-/* ===== ПРАВА ===== */
-function addRight() {
-  if (!isAdmin()) return alert('Нет доступа');
-  const name = document.getElementById('right-name').value.trim();
-  const role = document.getElementById('right-role').value;
-  if (!name) return alert('Укажите Nickname');
-  DB.rights.push({ id: ++C.rights, name, role, date: today() });
-  document.getElementById('right-name').value = '';
-  renderRights();
+/* ===== СНЯТИЕ НАКАЗАНИЙ ===== */
+function addRevoke() {
+  const nick = document.getElementById('rev-nick').value.trim();
+  const admin = document.getElementById('rev-admin').value.trim();
+  const reason = document.getElementById('rev-reason').value.trim();
+  if (!nick || !reason) return alert('Заполните нарушителя и причину');
+  DB.revokes.push({ id: ++C.revokes, nick, admin: admin||'—', reason, status: 'На рассмотрении' });
+  ['rev-nick','rev-admin','rev-reason'].forEach(id => document.getElementById(id).value = '');
+  renderRevoke(); renderCheck();
 }
-function renderRights() {
-  const tbody = document.getElementById('rights-body');
-  if (!isAdmin()) { tbody.innerHTML = emptyRow(5, 'Доступ только для Главного модератора и Заместителя'); return; }
-  if (!DB.rights.length) { tbody.innerHTML = emptyRow(5); return; }
-  tbody.innerHTML = DB.rights.map(r => `
-    <tr>
-      <td>${r.id}</td><td>${esc(r.name)}</td>
-      <td><span class="badge ${roleClass(r.role)}">${esc(r.role)}</span></td>
-      <td>${r.date}</td>
-      <td><button class="small danger" onclick="delRight(${r.id})">Снять</button></td>
-    </tr>`).join('');
-}
-function delRight(id) { DB.rights = DB.rights.filter(r => r.id !== id); renderRights(); }
-
-/* ===== ПРОВЕРКА ФОРМ ===== */
-function renderCheck() {
-  const admin = isAdmin();
-  const rb = document.getElementById('check-reports-body');
-  if (!admin) { rb.innerHTML = emptyRow(9, 'Доступ только для Главного модератора и Заместителя'); }
-  else if (!DB.reports.length) { rb.innerHTML = emptyRow(9); }
-  else {
-    rb.innerHTML = DB.reports.map(r => `
-      <tr>
-        <td>${r.id}</td><td>${esc(r.nick)}</td>
-        <td><span class="badge ${roleClass(r.role)}">${esc(r.role)}</span></td>
-        <td>${esc(r.what)}</td><td class="points">${r.count}</td>
-        <td>${esc(r.proof)}</td><td>${r.date}</td>
-        <td class="status-${statusClass(r.status)}">${r.status}</td>
-        <td class="nowrap">${r.status === 'На рассмотрении'
-          ? `<button class="small ok" onclick="approveReport(${r.id})">✔</button>
-             <button class="small danger" onclick="rejectReport(${r.id})">✖</button>`
-          : '—'}</td>
-      </tr>`).join('');
-  }
-  const ib = document.getElementById('check-inactive-body');
-  if (!admin) { ib.innerHTML = emptyRow(7, 'Доступ только для Главного модератора и Заместителя'); }
-  else if (!DB.inactive.length) { ib.innerHTML = emptyRow(7); }
-  else {
-    ib.innerHTML = DB.inactive.map(r => `
-      <tr>
-        <td>${r.id}</td><td>${esc(r.nick)}</td>
-        <td><span class="badge ${roleClass(r.role)}">${esc(r.role)}</span></td>
-        <td>${esc(r.reason)}</td><td class="nowrap">${esc(r.period)}</td>
-        <td class="status-${statusClass(r.status)}">${r.status}</td>
-        <td class="nowrap">${r.status === 'На рассмотрении'
-          ? `<button class="small ok" onclick="approveInactive(${r.id})">✔</button>
-             <button class="small danger" onclick="rejectInactive(${r.id})">✖</button>`
-          : '—'}</td>
-      </tr>`).join('');
-  }
-}
-function approveReport(id) {
-  const r = DB.reports.find(x => x.id === id);
-  if (!r || r.status !== 'На рассмотрении') return;
-  r.status = 'Одобрено';
-  DB.points.push({ id: ++C.points, name: r.nick, amount: r.count, reason: `Одобрен отчёт #${r.id}: ${r.what}`, date: today() });
-  renderReports(); renderCheck(); renderPoints();
-}
-function rejectReport(id) {
-  const r = DB.reports.find(x => x.id === id);
-  if (r) r.status = 'Отклонено';
-  renderReports(); renderCheck();
-}
-function approveInactive(id) {
-  const r = DB.inactive.find(x => x.id === id);
-  if (r) r.status = 'Одобрено';
-  renderInactive(); renderCheck();
-}
-function rejectInactive(id) {
-  const r = DB.inactive.find(x => x.id === id);
-  if (r) r.status = 'Отклонено';
-  renderInactive(); renderCheck();
+function renderRevoke() {
+  const tbody = document.getElementById('punish_revoke-body');
+  if (!DB.revokes.length) { tbody.innerHTML = emptyRow(5); return; }
+  tbody.innerHTML = DB.revokes.map(r => `
+    <tr><td>${r.id}</td><td>${esc(r.nick)}</td><td>${esc(r.admin)}</td>
+    <td>${esc(r.reason)}</td><td class="status-${statusClass(r.status)}">${r.status}</td></tr>`).join('');
 }
 
-/* ===== АККАУНТЫ ===== */
-function renderAccounts() {
-  const admin = isAdmin();
-  const pending = DB.accounts.filter(a => a.status === 'На рассмотрении');
-  const active = DB.accounts.filter(a => a.status === 'Одобрен');
-
-  const tb = document.getElementById('accounts-body');
-  if (!admin) { tb.innerHTML = emptyRow(7, 'Доступ только для Главного модератора и Заместителя'); }
-  else if (!pending.length) { tb.innerHTML = emptyRow(7, 'Нет новых заявок'); }
-  else {
-    tb.innerHTML = pending.map(a => `
-      <tr>
-        <td>${a.id}</td><td>${esc(a.nick)}</td><td>${esc(a.email)}</td>
-        <td><span class="badge ${roleClass(ROLE_LABELS[a.role] || a.role)}">${ROLE_LABELS[a.role] || a.role}</span></td>
-        <td>${a.date}</td><td class="status-pending">${a.status}</td>
-        <td class="nowrap">
-          <button class="small ok" onclick="approveAcc(${a.id})">✔</button>
-          <button class="small danger" onclick="rejectAcc(${a.id})">✖</button>
-        </td>
-      </tr>`).join('');
-  }
-
-  const tba = document.getElementById('accounts-active-body');
-  if (!admin) { tba.innerHTML = emptyRow(6); }
-  else if (!active.length) { tba.innerHTML = emptyRow(6); }
-  else {
-    tba.innerHTML = active.map(a => `
-      <tr>
-        <td>${a.id}</td><td>${esc(a.nick)}</td><td>${esc(a.email)}</td>
-        <td><span class="badge ${roleClass(ROLE_LABELS[a.role] || a.role)}">${ROLE_LABELS[a.role] || a.role}</span></td>
-        <td>${a.date}</td>
-        <td>${a.dev ? '<span style="color:#ff6b35;font-size:11px">DEV</span>'
-            : `<button class="small danger" onclick="delAcc(${a.id})">Удалить</button>`}</td>
-      </tr>`).join('');
-  }
+/* ===== РЕКОРДЫ ===== */
+function addRecord() {
+  const nick = document.getElementById('rec-nick').value.trim();
+  const type = document.getElementById('rec-type').value;
+  const val = document.getElementById('rec-value').value;
+  const proof = document.getElementById('rec-proof').value.trim();
+  if (!nick || !val) return alert('Заполните Nickname и значение');
+  DB.records.push({ id: ++C.records, nick, type, value: val, proof, status: 'На рассмотрении' });
+  ['rec-nick','rec-value','rec-proof'].forEach(id => document.getElementById(id).value = '');
+  renderRecords(); renderCheck();
 }
-function approveAcc(id) {
-  const a = DB.accounts.find(x => x.id === id);
-  if (a) a.status = 'Одобрен';
-  renderAccounts();
-}
-function rejectAcc(id) {
-  const a = DB.accounts.find(x => x.id === id);
-  if (a) a.status = 'Отклонено';
-  renderAccounts();
-}
-function delAcc(id) {
-  DB.accounts = DB.accounts.filter(x => x.id !== id);
-  renderAccounts();
+function renderRecords() {
+  const tbody = document.getElementById('records-body');
+  if (!DB.records.length) { tbody.innerHTML = emptyRow(5); return; }
+  tbody.innerHTML = DB.records.map(r => `
+    <tr><td>${r.id}</td><td>${esc(r.nick)}</td><td>${esc(r.type)}</td>
+    <td class="points">${r.value}</td><td class="status-${statusClass(r.status)}">${r.status}</td></tr>`).join('');
 }
 
-/* ===== БАЛЛЫ ===== */
-function addPoints() {
-  if (!isAdmin()) return alert('Нет доступа');
-  const name = document.getElementById('pt-name').value.trim();
-  const amount = parseInt(document.getElementById('pt-amount').value, 10);
-  const reason = document.getElementById('pt-reason').value.trim();
-  if (!name) return alert('Укажите Nickname');
-  if (isNaN(amount) || amount === 0) return alert('Введите число баллов (≠0)');
-  if (!reason) return alert('Укажите причину');
-  DB.points.push({ id: ++C.points, name, amount, reason, date: today() });
-  ['pt-name','pt-amount','pt-reason'].forEach(id => document.getElementById(id).value = '');
-  renderPoints();
+/* ===== РУЛЕТКА ===== */
+let currentRotation = 0;
+function renderWheelAdmin() {
+  const tbody = document.getElementById('wheel-prizes-body');
+  if (!DB.prizes.length) { tbody.innerHTML = emptyRow(3); return; }
+  tbody.innerHTML = DB.prizes.map((p, i) => `
+    <tr><td>${i+1}</td><td>${esc(p)}</td>
+    <td><button class="small danger" onclick="delPrize(${i})">✖</button></td></tr>`).join('');
 }
-function delPoints(id) { DB.points = DB.points.filter(p => p.id !== id); renderPoints(); }
-function renderPoints() {
-  const admin = isAdmin();
-  const stats = document.getElementById('points-stats');
-  const tbody = document.getElementById('points-body');
-
-  const totals = {};
-  DB.points.forEach(p => totals[p.name] = (totals[p.name] || 0) + p.amount);
-  const names = Object.keys(totals);
-  if (!names.length) {
-    stats.innerHTML = `<div class="stat-box"><div class="num">0</div><div class="lbl">Нет данных</div></div>`;
-  } else {
-    stats.innerHTML = names.sort((a,b) => totals[b]-totals[a])
-      .map(n => `<div class="stat-box"><div class="num">${totals[n]}</div><div class="lbl">${esc(n)}</div></div>`)
-      .join('');
-  }
-
-  if (!admin) { tbody.innerHTML = emptyRow(6, 'Доступ только для Главного модератора и Заместителя'); return; }
-  if (!DB.points.length) { tbody.innerHTML = emptyRow(6); return; }
-  tbody.innerHTML = DB.points.slice().reverse().map(p => `
-    <tr>
-      <td>${p.id}</td><td>${esc(p.name)}</td>
-      <td style="font-weight:700;color:${p.amount>=0?'#58d68d':'#ec7063'}">${p.amount >= 0 ? '+' : ''}${p.amount}</td>
-      <td>${esc(p.reason)}</td><td>${p.date}</td>
-      <td><button class="small danger" onclick="delPoints(${p.id})">✖</button></td>
-    </tr>`).join('');
+function addPrize() {
+  if (!isAdmin()) return;
+  const p = document.getElementById('wheel-prize').value.trim();
+  if (!p) return;
+  DB.prizes.push(p); document.getElementById('wheel-prize').value = '';
+  renderWheelAdmin();
+}
+function delPrize(i) { if(isAdmin()) { DB.prizes.splice(i, 1); renderWheelAdmin(); } }
+function spinWheel() {
+  if (!DB.prizes.length) return alert('Нет призов для рулетки');
+  const spins = Math.floor(Math.random() * 5) + 5;
+  currentRotation += spins * 360 + Math.random() * 360;
+  const wheel = document.getElementById('wheel-graphic');
+  wheel.style.transform = `rotate(${currentRotation}deg)`;
+  document.getElementById('spin-btn').disabled = true;
+  document.getElementById('wheel-result').textContent = 'Крутим...';
+  
+  setTimeout(() => {
+    const randomPrize = DB.prizes[Math.floor(Math.random() * DB.prizes.length)];
+    document.getElementById('wheel-result').textContent = `🎉 Выигрыш: ${randomPrize}!`;
+    document.getElementById('spin-btn').disabled = false;
+  }, 4000);
 }
 
 /* ===== ТЕМЫ ===== */
@@ -827,30 +762,200 @@ function addTopic() {
   const title = document.getElementById('forum-title').value.trim();
   const author = document.getElementById('forum-author').value.trim();
   const text = document.getElementById('forum-text').value.trim();
-  if (!title || !text) return alert('Заполните название и текст темы');
-  DB.topics.unshift({ id: ++C.topics, title, author: author || 'Аноним', text, date: today() });
+  if (!title || !text) return alert('Заполните название и текст');
+  DB.topics.unshift({ id: ++C.topics, title, author: author||currentUser.nick, text, date: today() });
   ['forum-title','forum-author','forum-text'].forEach(id => document.getElementById(id).value = '');
   renderForum();
 }
-function delTopic(id) { DB.topics = DB.topics.filter(t => t.id !== id); renderForum(); }
 function renderForum() {
   const body = document.getElementById('forum-body');
-  if (!DB.topics.length) { body.innerHTML = `<div class="empty">Тем пока нет. Создайте первую!</div>`; return; }
+  if (!DB.topics.length) { body.innerHTML = `<div class="empty">Нет тем</div>`; return; }
   body.innerHTML = DB.topics.map(t => `
-    <div class="forum-topic">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
-        <div>
-          <h3>${esc(t.title)}</h3>
-          <div class="meta">Автор: <b>${esc(t.author)}</b> · ${t.date} · Тема #${t.id}</div>
-        </div>
-        <button class="small danger" onclick="delTopic(${t.id})">Удалить</button>
-      </div>
+    <div class="forum-topic" onclick="openTopic(${t.id})">
+      <h3>${esc(t.title)}</h3>
+      <div class="meta">Автор: <b>${esc(t.author)}</b> · ${t.date}</div>
       <p>${esc(t.text)}</p>
     </div>`).join('');
+}
+function openTopic(id) {
+  const t = DB.topics.find(x => x.id === id);
+  if (!t) return;
+  document.getElementById('forum-list-card').style.display = 'none';
+  document.getElementById('forum-create-card').style.display = 'none';
+  const vc = document.getElementById('forum-view-card');
+  vc.style.display = 'block';
+  document.getElementById('topic-view-title').textContent = t.title;
+  document.getElementById('topic-view-meta').textContent = `Автор: ${t.author} · ${t.date}`;
+  document.getElementById('topic-view-text').textContent = t.text;
+}
+function closeTopic() {
+  document.getElementById('forum-list-card').style.display = 'block';
+  document.getElementById('forum-view-card').style.display = 'none';
+  if (isAdmin()) document.getElementById('forum-create-card').style.display = 'block';
+}
+
+/* ===== ПРОФИЛЬ ===== */
+function renderProfile() {
+  if (!currentUser) return;
+  document.getElementById('prof-nick').textContent = currentUser.nick;
+  document.getElementById('prof-role').textContent = ROLE_LABELS[currentUser.role] || currentUser.role;
+  document.getElementById('prof-role').className = 'badge ' + roleClass(ROLE_LABELS[currentUser.role] || currentUser.role);
+  document.getElementById('prof-email').textContent = currentUser.email;
+
+  const userPoints = DB.points.filter(p => p.name === currentUser.nick).reduce((sum, p) => sum + p.amount, 0);
+  const userPunish = DB.reports.filter(r => r.nick === currentUser.nick && r.status === 'Одобрено').reduce((sum, r) => sum + (r.punish||0), 0);
+  const userReports = DB.reports.filter(r => r.nick === currentUser.nick).length;
+
+  document.getElementById('prof-stats').innerHTML = `
+    <div class="stat-box"><div class="num">${userPoints}</div><div class="lbl">Баллы</div></div>
+    <div class="stat-box"><div class="num">${userPunish}</div><div class="lbl">Наказаний выдано</div></div>
+    <div class="stat-box"><div class="num">${userReports}</div><div class="lbl">Отчётов подано</div></div>
+  `;
+}
+
+/* ===== ТАБЛИЦА МОДЕРАЦИИ ===== */
+function addModTable() {
+  if (!isBoss()) return;
+  const nick = document.getElementById('mt-nick').value.trim();
+  const role = document.getElementById('mt-role').value;
+  const days = parseInt(document.getElementById('mt-days').value, 10) || 0;
+  if (!nick) return alert('Укажите Nickname');
+  
+  const userPts = DB.points.filter(p => p.name === nick).reduce((s, p) => s + p.amount, 0);
+  DB.modTable.push({ id: ++C.modTable, nick, role, days, points: userPts });
+  ['mt-nick','mt-days'].forEach(id => document.getElementById(id).value = '');
+  renderModTable();
+}
+function renderModTable() {
+  const tbody = document.getElementById('mod-table-body');
+  if (!DB.modTable.length) { tbody.innerHTML = emptyRow(5); return; }
+  
+  const hierarchy = ['Главный модератор', 'Зам. Главного модератора', 'Куратор модерации', 'Старший модератор', 'Модератор', 'Младший модератор'];
+  const sorted = [...DB.modTable].sort((a,b) => hierarchy.indexOf(a.role) - hierarchy.indexOf(b.role));
+
+  tbody.innerHTML = sorted.map((r, i) => {
+    const pts = DB.points.filter(p => p.name === r.nick).reduce((s, p) => s + p.amount, 0);
+    return `<tr>
+      <td>${i+1}</td>
+      <td><span class="badge ${roleClass(r.role)}">${r.role}</span></td>
+      <td>${esc(r.nick)}</td>
+      <td class="points">${pts}</td>
+      <td>${r.days}</td>
+    </tr>`;
+  }).join('');
+}
+
+/* ===== ПРОЧИЕ АДМИНКИ ===== */
+function addRight() {
+  if (!isAdmin()) return;
+  const name = document.getElementById('right-name').value.trim();
+  const role = document.getElementById('right-role').value;
+  if (!name) return;
+  DB.rights.push({ id: ++C.rights, name, role, date: today() });
+  document.getElementById('right-name').value = '';
+  renderRights();
+}
+function renderRights() {
+  const tbody = document.getElementById('rights-body');
+  if (!isAdmin()) { tbody.innerHTML = emptyRow(5, 'Нет доступа'); return; }
+  if (!DB.rights.length) { tbody.innerHTML = emptyRow(5); return; }
+  tbody.innerHTML = DB.rights.map(r => `
+    <tr><td>${r.id}</td><td>${esc(r.name)}</td>
+    <td><span class="badge ${roleClass(r.role)}">${esc(r.role)}</span></td>
+    <td>${r.date}</td>
+    <td><button class="small danger" onclick="DB.rights=DB.rights.filter(x=>x.id!==${r.id});renderRights()">✖</button></td></tr>`).join('');
+}
+
+function renderCheck() {
+  const admin = isAdmin();
+  const tr = document.getElementById('check-reports-body');
+  if (!admin) { tr.innerHTML = emptyRow(7, 'Нет доступа'); } 
+  else {
+    tr.innerHTML = DB.reports.length ? DB.reports.map(r => `
+      <tr><td>${r.id}</td><td>${esc(r.nick)}</td><td>${esc(r.what)}</td>
+      <td class="points">${r.count}</td><td>${r.punish}</td>
+      <td class="status-${statusClass(r.status)}">${r.status}</td>
+      <td>${r.status==='На рассмотрении'?`<button class="small ok" onclick="appRep(${r.id})">✔</button><button class="small danger" onclick="rejRep(${r.id})">✖</button>`:'—'}</td></tr>`).join('') : emptyRow(7);
+  }
+  const ti = document.getElementById('check-inactive-body');
+  if (!admin) { ti.innerHTML = emptyRow(5, 'Нет доступа'); } 
+  else {
+    ti.innerHTML = DB.inactive.length ? DB.inactive.map(r => `
+      <tr><td>${r.id}</td><td>${esc(r.nick)}</td><td>${r.period}</td>
+      <td class="status-${statusClass(r.status)}">${r.status}</td>
+      <td>${r.status==='На рассмотрении'?`<button class="small ok" onclick="appIna(${r.id})">✔</button><button class="small danger" onclick="rejIna(${r.id})">✖</button>`:'—'}</td></tr>`).join('') : emptyRow(5);
+  }
+  const trev = document.getElementById('check-revoke-body');
+  if (!admin) { trev.innerHTML = emptyRow(6, 'Нет доступа'); }
+  else {
+    trev.innerHTML = DB.revokes.length ? DB.revokes.map(r => `
+      <tr><td>${r.id}</td><td>${esc(r.nick)}</td><td>${esc(r.admin)}</td><td>${esc(r.reason)}</td>
+      <td class="status-${statusClass(r.status)}">${r.status}</td>
+      <td>${r.status==='На рассмотрении'?`<button class="small ok" onclick="appRev(${r.id})">✔</button><button class="small danger" onclick="rejRev(${r.id})">✖</button>`:'—'}</td></tr>`).join('') : emptyRow(6);
+  }
+  const trec = document.getElementById('check-records-body');
+  if (!admin) { trec.innerHTML = emptyRow(6, 'Нет доступа'); }
+  else {
+    trec.innerHTML = DB.records.length ? DB.records.map(r => `
+      <tr><td>${r.id}</td><td>${esc(r.nick)}</td><td>${esc(r.type)}</td><td>${r.value}</td>
+      <td class="status-${statusClass(r.status)}">${r.status}</td>
+      <td>${r.status==='На рассмотрении'?`<button class="small ok" onclick="appRec(${r.id})">✔</button><button class="small danger" onclick="rejRec(${r.id})">✖</button>`:'—'}</td></tr>`).join('') : emptyRow(6);
+  }
+}
+function appRep(id) { const r = DB.reports.find(x=>x.id===id); if(r){ r.status='Одобрено'; renderCheck(); renderReports(); } }
+function rejRep(id) { const r = DB.reports.find(x=>x.id===id); if(r){ r.status='Отклонено'; renderCheck(); renderReports(); } }
+function appIna(id) { const r = DB.inactive.find(x=>x.id===id); if(r){ r.status='Одобрено'; renderCheck(); renderInactive(); } }
+function rejIna(id) { const r = DB.inactive.find(x=>x.id===id); if(r){ r.status='Отклонено'; renderCheck(); renderInactive(); } }
+function appRev(id) { const r = DB.revokes.find(x=>x.id===id); if(r){ r.status='Одобрено'; renderCheck(); renderRevoke(); } }
+function rejRev(id) { const r = DB.revokes.find(x=>x.id===id); if(r){ r.status='Отклонено'; renderCheck(); renderRevoke(); } }
+function appRec(id) { const r = DB.records.find(x=>x.id===id); if(r){ r.status='Одобрено'; renderCheck(); renderRecords(); } }
+function rejRec(id) { const r = DB.records.find(x=>x.id===id); if(r){ r.status='Отклонено'; renderCheck(); renderRecords(); } }
+
+function renderAccounts() {
+  const admin = isAdmin();
+  const tb = document.getElementById('accounts-body');
+  const pend = DB.accounts.filter(a=>a.status==='На рассмотрении');
+  if (!admin) { tb.innerHTML = emptyRow(5, 'Нет доступа'); } 
+  else { tb.innerHTML = pend.length ? pend.map(a => `
+    <tr><td>${a.id}</td><td>${esc(a.nick)}</td><td>${esc(a.email)}</td><td>${ROLE_LABELS[a.role]||a.role}</td>
+    <td><button class="small ok" onclick="appAcc(${a.id})">✔</button><button class="small danger" onclick="rejAcc(${a.id})">✖</button></td></tr>`).join('') : emptyRow(5, 'Нет заявок'); }
+
+  const tba = document.getElementById('accounts-active-body');
+  const act = DB.accounts.filter(a=>a.status==='Одобрен');
+  if (!admin) { tba.innerHTML = emptyRow(5); }
+  else { tba.innerHTML = act.map(a => `
+    <tr><td>${a.id}</td><td>${esc(a.nick)}</td><td>${esc(a.email)}</td><td>${ROLE_LABELS[a.role]||a.role}</td>
+    <td>${a.dev?'<span style="color:#ff6b35;font-size:11px">DEV</span>':`<button class="small danger" onclick="DB.accounts=DB.accounts.filter(x=>x.id!==${a.id});renderAccounts()">✖</button>`}</td></tr>`).join(''); }
+}
+function appAcc(id) { const a = DB.accounts.find(x=>x.id===id); if(a){ a.status='Одобрен'; renderAccounts(); } }
+function rejAcc(id) { const a = DB.accounts.find(x=>x.id===id); if(a){ a.status='Отклонено'; renderAccounts(); } }
+
+function addPoints() {
+  if (!isAdmin()) return;
+  const name = document.getElementById('pt-name').value.trim();
+  const amt = parseInt(document.getElementById('pt-amount').value, 10);
+  const reas = document.getElementById('pt-reason').value.trim();
+  if (!name || isNaN(amt) || amt === 0 || !reas) return alert('Заполните поля');
+  DB.points.push({ id: ++C.points, name, amount: amt, reason: reas, date: today() });
+  ['pt-name','pt-amount','pt-reason'].forEach(id => document.getElementById(id).value = '');
+  renderPoints(); renderModTable(); renderProfile();
+}
+function renderPoints() {
+  const tb = document.getElementById('points-body');
+  if (!isAdmin()) { tb.innerHTML = emptyRow(6, 'Нет доступа'); return; }
+  if (!DB.points.length) { tb.innerHTML = emptyRow(6); return; }
+  tb.innerHTML = DB.points.slice().reverse().map(p => `
+    <tr><td>${p.id}</td><td>${esc(p.name)}</td><td style="color:${p.amount>0?'#58d68d':'#ec7063'}">${p.amount>0?'+':''}${p.amount}</td>
+    <td>${esc(p.reason)}</td><td>${p.date}</td><td><button class="small danger" onclick="DB.points=DB.points.filter(x=>x.id!==${p.id});renderPoints();renderModTable()">✖</button></td></tr>`).join('');
+  
+  const totals = {}; DB.points.forEach(p => totals[p.name] = (totals[p.name]||0) + p.amount);
+  const stats = document.getElementById('points-stats');
+  const keys = Object.keys(totals);
+  stats.innerHTML = keys.length ? keys.sort((a,b)=>totals[b]-totals[a]).map(n=>`<div class="stat-box"><div class="num">${totals[n]}</div><div class="lbl">${esc(n)}</div></div>`).join('') : `<div class="stat-box"><div class="num">0</div><div class="lbl">Нет данных</div></div>`;
 }
 
 /* ===== СТАРТ ===== */
 renderAll();
 </script>
 </body>
-</html>
+       </html>
