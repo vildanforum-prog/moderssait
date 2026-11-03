@@ -27,13 +27,22 @@
   .auth-box h2 { color: #ff6b35; font-size: 22px; margin-bottom: 6px; text-align: center; letter-spacing: 1px; }
   .auth-box .sub { text-align: center; color: #888; font-size: 13px; margin-bottom: 24px; }
   .auth-form { display: flex; flex-direction: column; gap: 11px; }
-  .auth-form input, .auth-form select { background: #1a1d21; border: 1px solid #3a3f47; color: #e4e6eb; padding: 12px 14px; border-radius: 8px; font-size: 14px; outline: none; width: 100%; font-family: inherit; }
-  .auth-form input:focus, .auth-form select:focus { border-color: #ff6b35; }
+  .auth-form input { background: #1a1d21; border: 1px solid #3a3f47; color: #e4e6eb; padding: 12px 14px; border-radius: 8px; font-size: 14px; outline: none; width: 100%; font-family: inherit; }
+  .auth-form input:focus { border-color: #ff6b35; }
   .auth-form button { padding: 13px; font-size: 14px; border-radius: 8px; margin-top: 8px; }
   .auth-msg { font-size: 13px; padding: 11px; border-radius: 8px; margin-top: 8px; text-align: center; line-height: 1.4; }
   .auth-msg.error { background: #c0392b33; color: #ec7063; border: 1px solid #c0392b; }
   .auth-msg.ok { background: #27ae6033; color: #58d68d; border: 1px solid #27ae60; }
   .auth-footer { text-align: center; color: #555; font-size: 11px; margin-top: 18px; }
+  
+  .dev-btn {
+    background: #000 !important;
+    color: #ff6b35 !important;
+    border: 1px solid #ff6b35 !important;
+    font-weight: 700 !important;
+    margin-top: 15px !important;
+  }
+  .dev-btn:hover { background: #111 !important; }
 
   #app-screen { display: flex; flex-direction: column; min-height: 100vh; }
   header { background: linear-gradient(90deg, #2b2f36, #3a3f47); padding: 14px 24px; border-bottom: 2px solid #ff6b35; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
@@ -57,7 +66,7 @@
   input, select, textarea { background: #1a1d21; border: 1px solid #3a3f47; color: #e4e6eb; padding: 10px 12px; border-radius: 6px; font-size: 13px; font-family: inherit; outline: none; transition: .2s; }
   input:focus, select:focus, textarea:focus { border-color: #ff6b35; }
   textarea { width: 100%; min-height: 80px; resize: vertical; }
-  input[type="text"], input[type="number"], input[type="date"], input[type="email"] { flex: 1; min-width: 130px; }
+  input[type="text"], input[type="number"], input[type="date"] { flex: 1; min-width: 130px; }
   button { background: #ff6b35; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: .2s; font-family: inherit; }
   button:hover { background: #ff8555; }
   button.secondary { background: #3a3f47; } button.secondary:hover { background: #4a4f57; }
@@ -124,6 +133,7 @@
       <input type="text" id="login-nick" placeholder="Nickname" autocomplete="username">
       <input type="password" id="login-pass" placeholder="Пароль" autocomplete="current-password" onkeydown="if(event.key==='Enter') doLogin()">
       <button onclick="doLogin()">Войти</button>
+      <button class="dev-btn" onclick="devLogin()">Войти как Разработчик (DEV)</button>
       <div class="auth-msg" id="login-msg" style="display:none"></div>
     </div>
 
@@ -158,12 +168,11 @@
   </div>
 
   <main>
+    <!-- ВКЛАДКИ ОСТАЛИСЬ БЕЗ ИЗМЕНЕНИЙ (Скопированы из предыдущего шага) -->
     <section class="panel active" id="reports">
       <div class="card">
         <h2>Отправить отчёт</h2>
-        <div class="form-row">
-          <select id="rep-nick" disabled></select>
-        </div>
+        <div class="form-row"><select id="rep-nick" disabled></select></div>
         <div class="form-row">
           <input type="text" id="rep-what" placeholder="Что было проделано" style="flex:2">
           <input type="number" id="rep-count" placeholder="Кол-во действий" min="1">
@@ -187,9 +196,7 @@
     <section class="panel" id="inactive">
       <div class="card">
         <h2>Заявка на неактив</h2>
-        <div class="form-row">
-          <select id="ina-nick" disabled></select>
-        </div>
+        <div class="form-row"><select id="ina-nick" disabled></select></div>
         <div class="form-row">
           <input type="text" id="ina-reason" placeholder="Причина неактива" style="flex:2">
           <input type="date" id="ina-from" title="С">
@@ -417,8 +424,7 @@
           </select>
           <button onclick="createAccount()">Создать</button>
         </div>
-        <div id="create-result" style="display:none; margin-top:10px; padding:10px; background:#27ae6022; border:1px solid #27ae60; border-radius:6px; color:#58d68d; font-size:13px;">
-        </div>
+        <div id="create-result" style="display:none; margin-top:10px; padding:10px; background:#27ae6022; border:1px solid #27ae60; border-radius:6px; color:#58d68d; font-size:13px;"></div>
       </div>
       <div class="card">
         <h2>Все аккаунты</h2>
@@ -456,7 +462,7 @@
 /* ===== ХРАНИЛИЩЕ ===== */
 const DB = {
   accounts: [
-    { id: 1, nick: 'admin', pass: 'Admin09080767', role: 'dev', status: 'Одобрен', dev: true, date: new Date().toLocaleDateString('ru-RU') }
+    { id: 1, nick: 'Vildan_Velikii', email: 'vildanforum@gmail.com', pass: 'Admin09080767', role: 'dev', status: 'Одобрен', dev: true, date: new Date().toLocaleDateString('ru-RU') }
   ],
   reports: [], inactive: [], rights: [], points: [], topics: [],
   revokes: [], records: [], prizes: ['500 CR', '1000 CR', 'Автомобиль', 'Скидка 10%'],
@@ -504,6 +510,16 @@ function doLogin() {
   
   currentUser = acc; enterApp();
 }
+
+// Быстрый вход разработчика
+function devLogin() {
+  const devAcc = DB.accounts.find(a => a.dev);
+  if (devAcc) {
+    currentUser = devAcc;
+    enterApp();
+  }
+}
+
 function enterApp() {
   document.getElementById('auth-screen').classList.add('hidden');
   document.getElementById('app-screen').classList.remove('hidden');
@@ -544,21 +560,17 @@ function updateAccess() {
   document.getElementById('mod-table-admin').classList.toggle('hidden', !isBoss());
   document.getElementById('forum-create-card').classList.toggle('hidden', !admin);
   
-  // Показ колонки "Действия" в таблице модерации
   document.getElementById('mt-actions-header').classList.toggle('hidden', !isBoss());
 }
 
-// Обновление выпадающих списков никнеймов (только одобренные пользователи)
 function updateSelects() {
   const approved = DB.accounts.map(a => a.nick);
   
-  // Для отчётов, неактива и рекордов - фиксируем на текущем пользователе
   ['rep-nick', 'ina-nick', 'rec-nick'].forEach(id => {
     const sel = document.getElementById(id);
     if(sel) sel.innerHTML = `<option value="${currentUser.nick}">${currentUser.nick}</option>`;
   });
 
-  // Для остальных - список всех
   ['rev-admin', 'pt-name'].forEach(id => {
     const sel = document.getElementById(id);
     if(!sel) return;
@@ -570,13 +582,11 @@ function updateSelects() {
   const revSel = document.getElementById('rev-nick');
   if(revSel) revSel.innerHTML = approved.map(n => `<option value="${n}">${n}</option>`).join('');
 
-  // В правах - только те, кто есть в таблице модерации
   const rightSel = document.getElementById('right-name');
   if(rightSel) {
     rightSel.innerHTML = DB.modTable.map(m => `<option value="${m.nick}">${m.nick} (${m.role})</option>`).join('');
   }
 
-  // В добавлении в таблицу - те, кого там еще нет
   const mtSel = document.getElementById('mt-nick-select');
   if(mtSel) {
     const existing = DB.modTable.map(m => m.nick);
@@ -594,7 +604,7 @@ function renderAll() {
 
 /* ===== ОТЧЁТЫ ===== */
 function addReport() {
-  const nick = currentUser.nick; // Автоматически
+  const nick = currentUser.nick;
   const what = document.getElementById('rep-what').value.trim();
   const count = parseInt(document.getElementById('rep-count').value, 10);
   const punish = parseInt(document.getElementById('rep-punish').value, 10) || 0;
@@ -749,7 +759,7 @@ function renderProfile() {
   document.getElementById('prof-nick').textContent = currentUser.nick;
   document.getElementById('prof-role').textContent = ROLE_LABELS[currentUser.role] || currentUser.role;
   document.getElementById('prof-role').className = 'badge ' + roleClass(ROLE_LABELS[currentUser.role] || currentUser.role);
-  document.getElementById('prof-email').textContent = 'Система: закрытая';
+  document.getElementById('prof-email').textContent = currentUser.email || 'Система: закрытая';
 
   const userPoints = DB.points.filter(p => p.name === currentUser.nick).reduce((sum, p) => sum + p.amount, 0);
   const userPunish = DB.reports.filter(r => r.nick === currentUser.nick && r.status === 'Одобрено').reduce((sum, r) => sum + (r.punish||0), 0);
@@ -956,4 +966,4 @@ function renderPoints() {
 renderAll();
 </script>
 </body>
- </html>
+     </html>
